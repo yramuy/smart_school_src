@@ -66,6 +66,39 @@ class Class_model extends MY_Model
         return $classlist;
     }
 
+    public function getClassListByLoginId()
+    {
+        $userdata = $this->customlib->getUserData();
+        $id = $userdata["id"];
+        $query = $this->db->query('SELECT c.* FROM class_teacher ct LEFT JOIN classes c ON ct.class_id = c.id WHERE ct.staff_id = "'.$id.'"');
+        $result = $query->result_array();
+        // print_r($userdata);die();
+        // $role_id  = $userdata["role_id"];
+        // $carray   = array();
+        // if (isset($role_id) && ($userdata["role_id"] == 2) && ($userdata["class_teacher"] == "no")) {
+        //     if ($userdata["class_teacher"] == 'no') {
+             
+        //         $classlist = $this->teacher_model->get_teacherrestricted_mode($userdata["id"]);
+        //     }
+        // } else {
+         
+        //     $this->db->select()->from('classes');
+        //     if ($id != null) {
+        //         $this->db->where('id', $id);
+        //     } else {
+        //         $this->db->order_by('id');
+        //     }
+        //     $query = $this->db->get();
+        //     if ($id != null) {
+        //         $classlist = $query->row_array();
+        //     } else {
+        //         $classlist = $query->result_array();
+        //     }
+        // }
+
+        return $result;
+    }
+
     /**
      * This function will delete the record based on the id
      * @param $id

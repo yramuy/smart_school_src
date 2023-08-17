@@ -1569,7 +1569,7 @@ class Student extends Admin_Controller
         $data['adm_auto_insert'] = $this->sch_setting_detail->adm_auto_insert;
         $data['sch_setting']     = $this->sch_setting_detail;
         $data['fields']          = $this->customfield_model->get_custom_fields('students', 1);
-        $class                   = $this->class_model->get();
+        $class                   = $this->class_model->getClassListByLoginId();
         $data['classlist']       = $class;
 
         $this->load->view('layout/header', $data);
