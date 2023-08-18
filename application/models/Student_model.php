@@ -2220,4 +2220,23 @@ class Student_model extends MY_Model
         $query = $this->db->get();
         return $query->row_array();
     }
+
+    public function getStudentsByClassTeacher() {
+        $userdata = $this->customlib->getUserData();
+        $this->db->select('s.name,st.firstname,st.admission_no,ct.class_id,c.class,st.id,st.dob,st.gender,st.admission_date,se.section')->from('staff s');
+        $this->db->join('class_teacher ct','s.id = ct.staff_id','left');
+        $this->db->join('student_session ss','ss.class_id = ct.class_id','left');
+        $this->db->join('students st','st.id = ss.student_id','left');
+        $this->db->join('classes c','c.id = ct.class_id','left');
+        $this->db->join('sections se','se.id = ct.section_id','left');
+        $this->db->where('s.id', $userdata['id'])->where('ct.session_id', $this->current_session);
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+
+    public function getStudentSkills() {
+        $this->db->select('*')->from('student_skills')->where('is_active', 0);
+        $query = $this->db->get();
+        return $query->result_array();
+    }
 }

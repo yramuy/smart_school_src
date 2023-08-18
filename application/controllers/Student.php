@@ -1571,6 +1571,10 @@ class Student extends Admin_Controller
         $data['fields']          = $this->customfield_model->get_custom_fields('students', 1);
         $class                   = $this->class_model->getClassListByLoginId();
         $data['classlist']       = $class;
+        $students = $this->student_model->getStudentsByClassTeacher();
+        $data['students'] = $students;
+        $studentSkills = $this->student_model->getStudentSkills();
+        $data['studentskills'] = $studentSkills;
 
         $this->load->view('layout/header', $data);
         $this->load->view('student/studentPerformance', $data);
