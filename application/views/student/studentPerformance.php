@@ -1,3 +1,24 @@
+<style>
+.progress-label-left
+{
+    float: left;
+    margin-right: 0.5em;
+    line-height: 1em;
+}
+.progress-label-right
+{
+    float: right;
+    margin-left: 0.3em;
+    line-height: 1em;
+}
+.star-light
+{
+    color:#e9ecef;
+}
+</style>
+
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
+
 <?php $currency_symbol = $this->customlib->getSchoolCurrencyFormat();?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -94,16 +115,15 @@
                       </div>                      
                     </div>
                     <div class="form-group">
-                        <div class="box-header ptbnull">
-                        <h3 class="box-title titlefix"><?php echo "Student Skills"; ?></h3>
-                        
-                    </div>
+                        <div class="modal-header">                
+                            <h4 class="modal-title text-left"><?php echo "Student Skills"; ?></h4>
+                        </div>
                         <table class="table table-striped table-bordered table-hover" cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
                                         <th>S No</th>
                                         <th>Name</th>
-                                        <th>Rating</th>
+                                        <th class="text-center mt-2 mb-4">Rating</th>
                                         
                                     </tr>
                                 </thead>
@@ -114,18 +134,11 @@
                                             <td><?php echo $i; ?></td>                                            
                                             <td><?php echo $stsk['name']; ?></td>
                                             <td>
-                                                <div class="rate">
-        <input type="radio" id="star5" name="rating" value="5">
-        <label for="star5"></label>
-        <input type="radio" id="star4" name="rating" value="4">
-        <label for="star4"></label>
-        <input type="radio" id="star3" name="rating" value="3">
-        <label for="star3"></label>
-        <input type="radio" id="star2" name="rating" value="2">
-        <label for="star2"></label>
-        <input type="radio" id="star1" name="rating" value="1">
-        <label for="star1"></label>
-    </div>
+                                                <h4 class="text-center mt-2 mb-4">
+                                                    <?php for($k=1; $k<=5; $k++){?>
+                                                    <i class="fas fa-star star-light submit_star mr-1" id="submit_star_<?php echo $k; ?>_<?php echo $stsk['id']; ?>" data-rating="<?php echo $k; ?>" onclick="update_rating(<?php echo $stsk['id']; ?>,<?php echo $k; ?>)"></i>                                                   
+                                                <?php }?>
+                                                </h4>
                                             </td>
                                             
                                         </tr>
@@ -170,4 +183,71 @@
         });
 
     });
+
+    var rating_data = 0;
+
+    //     $(document).on('mouseenter', '.submit_star', function(){
+
+    //     var rating = $(this).data('rating');
+
+    //     reset_background();
+
+    //     for(var count = 1; count <= rating; count++)
+    //     {
+
+    //         $('#submit_star_'+count).addClass('text-warning');
+
+    //     }
+
+    // });
+
+    // function reset_background()
+    // {
+    //     for(var count = 1; count <= 5; count++)
+    //     {
+
+    //         $('#submit_star_'+count).addClass('star-light');
+
+    //         $('#submit_star_'+count).removeClass('text-warning');
+
+    //     }
+    // }
+
+    // $(document).on('mouseleave', '.submit_star', function(){
+
+    //     reset_background();
+
+    //     for(var count = 1; count <= rating_data; count++)
+    //     {
+
+    //         $('#submit_star_'+count).removeClass('star-light');
+
+    //         $('#submit_star_'+count).addClass('text-warning');
+    //     }
+
+    // });
+
+    function update_rating(skillid,rating){
+
+        for(var count = 1; count <= rating; count++)
+        {
+
+            $('#submit_star_'+count+'_'+skillid).removeClass('star-light');
+
+            $('#submit_star_'+count+'_'+skillid).addClass('text-warning');
+        }
+
+        // alert(skillid+' - '+rating);
+        
+        
+    }
+
+    // $(document).on('click', '.submit_star', function(){
+
+    //     rating_data = $(this).data('rating');
+
+    //     alert(rating_data);
+
+    // });
+
 </script>
