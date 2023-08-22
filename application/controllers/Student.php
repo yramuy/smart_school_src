@@ -1603,20 +1603,9 @@ class Student extends Admin_Controller
         $class_id = $this->input->post('class_id');
         $section_id = $this->input->post('sectionId');
         $students         = $this->student_model->searchByClassSection($class_id, $section_id);
-        // $data['students'] = $students;
 
-        
-        // $data['fields']       = $this->customfield_model->get_custom_fields('students', 1);
-        // // $student_list         = $this->student_model->getStudentBy_class_section_id($cls_section_id);
-        // // $data['student_list'] = $student_list;
-        // $data['sch_setting']  = $this->sch_setting_detail;
-        // $students = $this->student_model->getStudentsByClassTeacher();
-        // $data['students'] = $students;
-        // $page                 = $this->load->view('reports/_getStudentByClassSection', $data, true);
-        // echo json_encode(array('status' => 1, 'page' => $page));
-
-        $params      = array('class_id' => $class_id, 'section_id' => $section_id);
-        $array       = array('status' => 1, 'error' => '', 'params' => $params);
+        // $params      = array('class_id' => $class_id, 'section_id' => $section_id);
+        // $array       = array('status' => 1, 'error' => '', 'params' => $params);
 
         echo json_encode($students);
     }

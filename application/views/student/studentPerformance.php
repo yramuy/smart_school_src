@@ -78,8 +78,8 @@ $count++;
                         <div class="table-responsive mailbox-messages"> 
                             <div class="download_label"><?php echo $this->lang->line('subject_group_list'); ?></div>
 
-                            <a class="btn btn-default btn-xs pull-right" title="<?php echo $this->lang->line('print'); ?>" id="print" onclick="printDiv()" ><i class="fa fa-print"></i></a> 
-                            <a class="btn btn-default btn-xs pull-right" title="<?php echo $this->lang->line('export'); ?>"  id="btnExport" onclick="fnExcelReport();"> <i class="fa fa-file-excel-o"></i> </a>
+                            <!-- <a class="btn btn-default btn-xs pull-right" title="<?php echo $this->lang->line('print'); ?>" id="print" onclick="printDiv()" ><i class="fa fa-print"></i></a> 
+                            <a class="btn btn-default btn-xs pull-right" title="<?php echo $this->lang->line('export'); ?>"  id="btnExport" onclick="fnExcelReport();"> <i class="fa fa-file-excel-o"></i> </a> -->
                             
                             <table class="table table-striped table-bordered table-hover example" cellspacing="0" width="100%">
                                 <thead>
@@ -269,10 +269,7 @@ $(document).ready(function () {
             $('#submit_star_'+count+'_'+skillid).removeClass('star-light');
 
             $('#submit_star_'+count+'_'+skillid).addClass('text-warning');
-        }
-
-        // alert(skillid+' - '+rating);
-        
+        }        
         
     }
 
@@ -299,11 +296,8 @@ $(document).ready(function(){
                 {
                     console.log(obj);
                     $('#student_body').append('<tr><td>'+k+'</td><td>'+obj.admission_no+'</td><td>'+obj.firstname+'</td><td>'+obj.dob+'</td><td>'+obj.gender+'</td><td><a href="#" class="btn btn-default btn-xs star_rating text-green" data-toggle="tooltip" data-placement="bottom" title="<?php echo "Student Rating"; ?>" data-id="'+obj.id+'" data-name="'+obj.firstname+'" data-admission="'+obj.admission_no+'" data-section="'+obj.class+'('+obj.section+')" data-gender="'+obj.gender+'" data-dob="'+obj.dob+'"></i> <i class="fa fa-reorder"></i></a></td></tr>');
-                    
-                    // div_data += "<option value=" + obj.section_id + ">" + obj.section + "</option>";
-                    k++;
+                                        k++;
                 });
-                // $('#section_id').append(div_data);
             }
         });
 

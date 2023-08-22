@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 16, 2023 at 06:11 PM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 7.4.33
+-- Generation Time: Aug 22, 2023 at 02:23 PM
+-- Server version: 10.4.20-MariaDB
+-- PHP Version: 7.4.22
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -42,7 +42,7 @@ CREATE TABLE `alumni_events` (
   `event_notification_message` text NOT NULL,
   `show_onwebsite` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -59,7 +59,7 @@ CREATE TABLE `alumni_students` (
   `address` text NOT NULL,
   `photo` varchar(255) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -74,7 +74,7 @@ CREATE TABLE `attendence_type` (
   `is_active` varchar(255) DEFAULT 'no',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `attendence_type`
@@ -111,7 +111,7 @@ CREATE TABLE `books` (
   `is_active` varchar(255) DEFAULT 'no',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -129,7 +129,7 @@ CREATE TABLE `book_issues` (
   `is_returned` int(11) DEFAULT 0,
   `is_active` varchar(10) NOT NULL DEFAULT 'no',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -142,7 +142,7 @@ CREATE TABLE `captcha` (
   `name` varchar(250) NOT NULL,
   `status` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `captcha`
@@ -167,7 +167,7 @@ CREATE TABLE `categories` (
   `is_active` varchar(255) DEFAULT 'no',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -196,7 +196,7 @@ CREATE TABLE `certificates` (
   `enable_image_height` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `certificates`
@@ -219,7 +219,7 @@ CREATE TABLE `chat_connections` (
   `time` int(11) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -237,7 +237,7 @@ CREATE TABLE `chat_messages` (
   `is_read` int(1) NOT NULL DEFAULT 0,
   `chat_connection_id` int(11) NOT NULL,
   `created_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -255,7 +255,7 @@ CREATE TABLE `chat_users` (
   `is_active` int(11) DEFAULT 0,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -269,7 +269,7 @@ CREATE TABLE `classes` (
   `is_active` varchar(255) DEFAULT 'no',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `classes`
@@ -292,7 +292,7 @@ CREATE TABLE `class_sections` (
   `is_active` varchar(255) DEFAULT 'no',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `class_sections`
@@ -313,7 +313,7 @@ CREATE TABLE `class_section_times` (
   `class_section_id` int(11) DEFAULT NULL,
   `time` time DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -327,7 +327,7 @@ CREATE TABLE `class_teacher` (
   `class_id` int(11) NOT NULL,
   `section_id` int(11) NOT NULL,
   `staff_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `class_teacher`
@@ -356,7 +356,7 @@ CREATE TABLE `complaint` (
   `assigned` varchar(50) NOT NULL,
   `note` text NOT NULL,
   `image` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -369,7 +369,7 @@ CREATE TABLE `complaint_type` (
   `complaint_type` varchar(100) NOT NULL,
   `description` text NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -391,7 +391,7 @@ CREATE TABLE `contents` (
   `created_by` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -405,7 +405,7 @@ CREATE TABLE `content_for` (
   `content_id` int(11) DEFAULT NULL,
   `user_id` int(11) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -419,7 +419,7 @@ CREATE TABLE `content_types` (
   `description` text DEFAULT NULL,
   `is_active` int(1) DEFAULT 1,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -429,29 +429,29 @@ CREATE TABLE `content_types` (
 
 CREATE TABLE `countries` (
   `id` mediumint(8) UNSIGNED NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `iso3` char(3) DEFAULT NULL,
-  `numeric_code` char(3) DEFAULT NULL,
-  `iso2` char(2) DEFAULT NULL,
-  `phonecode` varchar(255) DEFAULT NULL,
-  `capital` varchar(255) DEFAULT NULL,
-  `currency` varchar(255) DEFAULT NULL,
-  `currency_name` varchar(255) DEFAULT NULL,
-  `currency_symbol` varchar(255) DEFAULT NULL,
-  `tld` varchar(255) DEFAULT NULL,
-  `native` varchar(255) DEFAULT NULL,
-  `region` varchar(255) DEFAULT NULL,
-  `subregion` varchar(255) DEFAULT NULL,
-  `timezones` text DEFAULT NULL,
-  `translations` text DEFAULT NULL,
+  `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `iso3` char(3) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `numeric_code` char(3) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `iso2` char(2) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `phonecode` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `capital` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `currency` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `currency_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `currency_symbol` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `tld` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `native` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `region` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `subregion` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `timezones` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `translations` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `latitude` decimal(10,8) DEFAULT NULL,
   `longitude` decimal(11,8) DEFAULT NULL,
-  `emoji` varchar(191) DEFAULT NULL,
-  `emojiU` varchar(191) DEFAULT NULL,
+  `emoji` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `emojiU` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `flag` tinyint(1) NOT NULL DEFAULT 1,
-  `wikiDataId` varchar(255) DEFAULT NULL COMMENT 'Rapid API GeoDB Cities'
+  `wikiDataId` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Rapid API GeoDB Cities'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -727,7 +727,7 @@ CREATE TABLE `currencies` (
   `base_price` varchar(10) NOT NULL DEFAULT '1',
   `is_active` int(1) DEFAULT 0,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `currencies`
@@ -934,7 +934,7 @@ CREATE TABLE `custom_fields` (
   `is_active` int(11) DEFAULT 0,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -949,7 +949,7 @@ CREATE TABLE `custom_field_values` (
   `field_value` varchar(500) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -969,7 +969,7 @@ CREATE TABLE `daily_assignment` (
   `evaluation_date` date DEFAULT NULL,
   `remark` text NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -981,7 +981,7 @@ CREATE TABLE `department` (
   `id` int(11) NOT NULL,
   `department_name` varchar(200) NOT NULL,
   `is_active` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -993,7 +993,7 @@ CREATE TABLE `disable_reason` (
   `id` int(11) NOT NULL,
   `reason` varchar(255) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1012,7 +1012,7 @@ CREATE TABLE `dispatch_receive` (
   `date` date DEFAULT NULL,
   `image` varchar(100) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1027,7 +1027,7 @@ CREATE TABLE `email_attachments` (
   `attachment` varchar(255) NOT NULL,
   `attachment_name` varchar(200) NOT NULL,
   `created_at` timestamp NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1049,7 +1049,7 @@ CREATE TABLE `email_config` (
   `region` varchar(255) DEFAULT NULL,
   `is_active` varchar(10) NOT NULL DEFAULT 'no',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `email_config`
@@ -1069,7 +1069,7 @@ CREATE TABLE `email_template` (
   `title` varchar(100) NOT NULL,
   `message` text NOT NULL,
   `created_at` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1082,7 +1082,7 @@ CREATE TABLE `email_template_attachment` (
   `email_template_id` int(11) NOT NULL,
   `attachment` varchar(100) NOT NULL,
   `attachment_name` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1108,7 +1108,7 @@ CREATE TABLE `enquiry` (
   `status` varchar(100) NOT NULL,
   `created_by` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1120,7 +1120,7 @@ CREATE TABLE `enquiry_type` (
   `id` int(11) NOT NULL,
   `enquiry_type` varchar(100) NOT NULL,
   `description` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1139,7 +1139,7 @@ CREATE TABLE `events` (
   `event_for` varchar(100) NOT NULL,
   `role_id` int(11) DEFAULT NULL,
   `is_active` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1155,7 +1155,7 @@ CREATE TABLE `exams` (
   `is_active` varchar(255) DEFAULT 'no',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1171,7 +1171,7 @@ CREATE TABLE `exam_groups` (
   `is_active` int(11) DEFAULT 1,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1194,7 +1194,7 @@ CREATE TABLE `exam_group_class_batch_exams` (
   `is_active` int(11) DEFAULT 0,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1213,7 +1213,7 @@ CREATE TABLE `exam_group_class_batch_exam_students` (
   `is_active` int(11) DEFAULT 0,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1236,7 +1236,7 @@ CREATE TABLE `exam_group_class_batch_exam_subjects` (
   `is_active` int(11) DEFAULT 0,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1252,7 +1252,7 @@ CREATE TABLE `exam_group_exam_connections` (
   `is_active` int(11) DEFAULT 0,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1271,7 +1271,7 @@ CREATE TABLE `exam_group_exam_results` (
   `is_active` int(11) DEFAULT 0,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1287,7 +1287,7 @@ CREATE TABLE `exam_group_students` (
   `is_active` int(11) DEFAULT 0,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1310,7 +1310,7 @@ CREATE TABLE `exam_schedules` (
   `is_active` varchar(255) DEFAULT 'no',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1331,7 +1331,7 @@ CREATE TABLE `expenses` (
   `is_deleted` varchar(255) DEFAULT 'no',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1347,7 +1347,7 @@ CREATE TABLE `expense_head` (
   `is_deleted` varchar(255) DEFAULT 'no',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1365,7 +1365,7 @@ CREATE TABLE `feemasters` (
   `is_active` varchar(255) DEFAULT 'no',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1384,7 +1384,7 @@ CREATE TABLE `fees_discounts` (
   `description` text DEFAULT NULL,
   `is_active` varchar(10) NOT NULL DEFAULT 'no',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1399,7 +1399,7 @@ CREATE TABLE `fees_reminder` (
   `is_active` int(1) DEFAULT 0,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `fees_reminder`
@@ -1427,7 +1427,7 @@ CREATE TABLE `feetype` (
   `description` text DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1442,7 +1442,7 @@ CREATE TABLE `fee_groups` (
   `description` text DEFAULT NULL,
   `is_active` varchar(10) NOT NULL DEFAULT 'no',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1463,7 +1463,7 @@ CREATE TABLE `fee_groups_feetype` (
   `fine_amount` float(10,2) NOT NULL DEFAULT 0.00,
   `is_active` varchar(10) NOT NULL DEFAULT 'no',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1474,7 +1474,7 @@ CREATE TABLE `fee_groups_feetype` (
 CREATE TABLE `fee_receipt_no` (
   `id` int(11) NOT NULL,
   `payment` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1488,7 +1488,7 @@ CREATE TABLE `fee_session_groups` (
   `session_id` int(11) DEFAULT NULL,
   `is_active` varchar(10) NOT NULL DEFAULT 'no',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1505,7 +1505,7 @@ CREATE TABLE `filetypes` (
   `image_mime` text DEFAULT NULL,
   `image_size` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `filetypes`
@@ -1529,7 +1529,7 @@ CREATE TABLE `follow_up` (
   `note` text NOT NULL,
   `followup_by` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1549,7 +1549,7 @@ CREATE TABLE `front_cms_media_gallery` (
   `file_size` varchar(100) NOT NULL,
   `vid_url` text NOT NULL,
   `vid_title` varchar(250) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1569,7 +1569,7 @@ CREATE TABLE `front_cms_menus` (
   `content_type` varchar(10) NOT NULL DEFAULT 'manual',
   `is_active` varchar(10) DEFAULT 'no',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `front_cms_menus`
@@ -1600,7 +1600,7 @@ CREATE TABLE `front_cms_menu_items` (
   `description` text DEFAULT NULL,
   `is_active` varchar(10) DEFAULT 'no',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `front_cms_menu_items`
@@ -1636,7 +1636,7 @@ CREATE TABLE `front_cms_pages` (
   `sidebar` int(10) DEFAULT 0,
   `is_active` varchar(10) DEFAULT 'no',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `front_cms_pages`
@@ -1659,7 +1659,7 @@ CREATE TABLE `front_cms_page_contents` (
   `page_id` int(11) DEFAULT NULL,
   `content_type` varchar(50) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1687,7 +1687,7 @@ CREATE TABLE `front_cms_programs` (
   `publish_date` date DEFAULT NULL,
   `publish` varchar(10) DEFAULT '0',
   `sidebar` int(10) DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1700,7 +1700,7 @@ CREATE TABLE `front_cms_program_photos` (
   `program_id` int(11) DEFAULT NULL,
   `media_gallery_id` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1731,7 +1731,7 @@ CREATE TABLE `front_cms_settings` (
   `cookie_consent` varchar(255) NOT NULL,
   `fav_icon` varchar(250) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `front_cms_settings`
@@ -1755,7 +1755,7 @@ CREATE TABLE `gateway_ins` (
   `parameter_details` mediumtext NOT NULL,
   `payment_status` varchar(255) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1769,7 +1769,7 @@ CREATE TABLE `gateway_ins_response` (
   `posted_data` text DEFAULT NULL,
   `response` text DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1788,7 +1788,7 @@ CREATE TABLE `general_calls` (
   `note` text NOT NULL,
   `call_type` varchar(20) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1807,7 +1807,7 @@ CREATE TABLE `grades` (
   `is_active` varchar(255) DEFAULT 'no',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1833,7 +1833,7 @@ CREATE TABLE `homework` (
   `created_by` int(11) NOT NULL,
   `evaluated_by` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1851,7 +1851,7 @@ CREATE TABLE `homework_evaluation` (
   `date` date NOT NULL,
   `status` varchar(100) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1869,7 +1869,7 @@ CREATE TABLE `hostel` (
   `is_active` varchar(255) DEFAULT 'no',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1887,7 +1887,7 @@ CREATE TABLE `hostel_rooms` (
   `title` varchar(200) DEFAULT NULL,
   `description` text DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1916,7 +1916,7 @@ CREATE TABLE `id_card` (
   `enable_blood_group` tinyint(1) NOT NULL COMMENT '0=disable,1=enable',
   `enable_student_barcode` tinyint(4) NOT NULL DEFAULT 1 COMMENT '0=disable,1=enable',
   `status` tinyint(1) NOT NULL COMMENT '0=disable,1=enable'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `id_card`
@@ -1945,7 +1945,7 @@ CREATE TABLE `income` (
   `is_deleted` varchar(255) DEFAULT 'no',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1961,7 +1961,7 @@ CREATE TABLE `income_head` (
   `is_deleted` varchar(255) NOT NULL DEFAULT 'no',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1982,7 +1982,7 @@ CREATE TABLE `item` (
   `date` date DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1997,7 +1997,7 @@ CREATE TABLE `item_category` (
   `description` varchar(255) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -2019,7 +2019,7 @@ CREATE TABLE `item_issue` (
   `is_returned` int(2) NOT NULL DEFAULT 1,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `is_active` varchar(10) DEFAULT 'no'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -2040,7 +2040,7 @@ CREATE TABLE `item_stock` (
   `description` text NOT NULL,
   `is_active` varchar(10) DEFAULT 'yes',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -2054,7 +2054,7 @@ CREATE TABLE `item_store` (
   `code` varchar(255) NOT NULL,
   `description` text NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -2072,7 +2072,7 @@ CREATE TABLE `item_supplier` (
   `contact_person_phone` varchar(255) NOT NULL,
   `contact_person_email` varchar(255) NOT NULL,
   `description` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -2090,7 +2090,7 @@ CREATE TABLE `languages` (
   `is_active` varchar(255) DEFAULT 'no',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `languages`
@@ -2185,7 +2185,7 @@ CREATE TABLE `leave_types` (
   `id` int(11) NOT NULL,
   `type` varchar(200) NOT NULL,
   `is_active` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -2200,7 +2200,7 @@ CREATE TABLE `lesson` (
   `subject_group_class_sections_id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -2216,7 +2216,7 @@ CREATE TABLE `lesson_plan_forum` (
   `student_id` int(11) DEFAULT NULL,
   `message` text NOT NULL,
   `created_date` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -2231,7 +2231,7 @@ CREATE TABLE `libarary_members` (
   `member_id` int(11) DEFAULT NULL,
   `is_active` varchar(10) NOT NULL DEFAULT 'no',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -2250,7 +2250,7 @@ CREATE TABLE `logs` (
   `agent` varchar(50) DEFAULT NULL,
   `time` timestamp NOT NULL DEFAULT current_timestamp(),
   `created_at` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `logs`
@@ -2321,7 +2321,36 @@ INSERT INTO `logs` (`id`, `message`, `record_id`, `user_id`, `action`, `ip_addre
 (62, 'New Record inserted On  student session id 10', '10', 1, 'Insert', '::1', 'Windows 10', 'Chrome 115.0.0.0', '2023-08-16 08:24:44', NULL),
 (63, 'New Record inserted On users id 19', '19', 1, 'Insert', '::1', 'Windows 10', 'Chrome 115.0.0.0', '2023-08-16 08:24:44', NULL),
 (64, 'New Record inserted On users id 20', '20', 1, 'Insert', '::1', 'Windows 10', 'Chrome 115.0.0.0', '2023-08-16 08:24:44', NULL),
-(65, 'Record updated On students id 10', '10', 1, 'Update', '::1', 'Windows 10', 'Chrome 115.0.0.0', '2023-08-16 08:24:44', NULL);
+(65, 'Record updated On students id 10', '10', 1, 'Update', '::1', 'Windows 10', 'Chrome 115.0.0.0', '2023-08-16 08:24:44', NULL),
+(0, 'New Record inserted On subjects id 0', '0', 1, 'Insert', '::1', 'Windows 10', 'Chrome 116.0.0.0', '2023-08-21 03:50:25', NULL),
+(0, 'New Record inserted On subjects id 0', '0', 1, 'Insert', '::1', 'Windows 10', 'Chrome 116.0.0.0', '2023-08-21 03:50:41', NULL),
+(0, 'New Record inserted On subjects id 0', '0', 1, 'Insert', '::1', 'Windows 10', 'Chrome 116.0.0.0', '2023-08-21 03:50:59', NULL),
+(0, 'New Record inserted On subject groups id 0', '0', 1, 'Insert', '::1', 'Windows 10', 'Chrome 116.0.0.0', '2023-08-21 03:52:17', NULL),
+(0, 'Record deleted On subject groups id 0', '0', 1, 'Delete', '::1', 'Windows 10', 'Chrome 116.0.0.0', '2023-08-21 03:52:51', NULL),
+(0, 'New Record inserted On subject groups id 0', '0', 1, 'Insert', '::1', 'Windows 10', 'Chrome 116.0.0.0', '2023-08-21 03:54:15', NULL),
+(0, 'New Record inserted On subjects id 0', '0', 1, 'Insert', '::1', 'Windows 10', 'Chrome 116.0.0.0', '2023-08-21 03:57:12', NULL),
+(0, 'New Record inserted On subjects id 0', '0', 1, 'Insert', '::1', 'Windows 10', 'Chrome 116.0.0.0', '2023-08-21 03:57:29', NULL),
+(0, 'New Record inserted On subjects id 0', '0', 1, 'Insert', '::1', 'Windows 10', 'Chrome 116.0.0.0', '2023-08-21 03:57:41', NULL),
+(0, 'New Record inserted On subject groups id 0', '0', 1, 'Insert', '::1', 'Windows 10', 'Chrome 116.0.0.0', '2023-08-21 03:58:07', NULL),
+(0, 'New Record inserted On subject groups id 0', '0', 1, 'Insert', '::1', 'Windows 10', 'Chrome 116.0.0.0', '2023-08-21 03:58:28', NULL),
+(0, 'Record updated On staff id 2', '2', 1, 'Update', '::1', 'Windows 10', 'Chrome 116.0.0.0', '2023-08-21 04:05:28', NULL),
+(0, 'Record updated On staff id 2', '2', 1, 'Update', '::1', 'Windows 10', 'Chrome 116.0.0.0', '2023-08-21 04:05:29', NULL),
+(0, 'Record updated On staff id 4', '4', 1, 'Update', '::1', 'Windows 10', 'Chrome 116.0.0.0', '2023-08-21 04:27:11', NULL),
+(0, 'New Record inserted On teacher subjects id 1', '1', 1, 'Insert', '::1', 'Windows 10', 'Chrome 116.0.0.0', '2023-08-22 05:21:09', NULL),
+(0, 'New Record inserted On teacher subjects id 2', '2', 1, 'Insert', '::1', 'Windows 10', 'Chrome 116.0.0.0', '2023-08-22 05:21:11', NULL),
+(0, 'New Record inserted On subjects id 4', '4', 1, 'Insert', '::1', 'Windows 10', 'Chrome 116.0.0.0', '2023-08-22 05:25:06', NULL),
+(0, 'New Record inserted On subjects id 5', '5', 1, 'Insert', '::1', 'Windows 10', 'Chrome 116.0.0.0', '2023-08-22 05:25:26', NULL),
+(0, 'New Record inserted On subjects id 6', '6', 1, 'Insert', '::1', 'Windows 10', 'Chrome 116.0.0.0', '2023-08-22 05:25:57', NULL),
+(0, 'Record updated On staff id 5', '5', 1, 'Update', '::1', 'Windows 10', 'Chrome 116.0.0.0', '2023-08-22 05:54:19', NULL),
+(0, 'Record updated On staff id 6', '6', 1, 'Update', '::1', 'Windows 10', 'Chrome 116.0.0.0', '2023-08-22 05:56:40', NULL),
+(0, 'Record updated On staff id 7', '7', 1, 'Update', '::1', 'Windows 10', 'Chrome 116.0.0.0', '2023-08-22 06:10:49', NULL),
+(0, 'Record updated On staff id 8', '8', 1, 'Update', '::1', 'Windows 10', 'Chrome 116.0.0.0', '2023-08-22 06:11:50', NULL),
+(0, 'New Record inserted On teacher subjects id 1', '1', 1, 'Insert', '::1', 'Windows 10', 'Chrome 116.0.0.0', '2023-08-22 06:21:06', NULL),
+(0, 'New Record inserted On teacher subjects id 2', '2', 1, 'Insert', '::1', 'Windows 10', 'Chrome 116.0.0.0', '2023-08-22 06:21:06', NULL),
+(0, 'New Record inserted On teacher subjects id 3', '3', 1, 'Insert', '::1', 'Windows 10', 'Chrome 116.0.0.0', '2023-08-22 06:21:07', NULL),
+(0, 'New Record inserted On teacher subjects id 4', '4', 1, 'Insert', '::1', 'Windows 10', 'Chrome 116.0.0.0', '2023-08-22 06:21:07', NULL),
+(0, 'New Record inserted On teacher subjects id 5', '5', 1, 'Insert', '::1', 'Windows 10', 'Chrome 116.0.0.0', '2023-08-22 06:21:07', NULL),
+(0, 'New Record inserted On teacher subjects id 6', '6', 1, 'Insert', '::1', 'Windows 10', 'Chrome 116.0.0.0', '2023-08-22 06:21:08', NULL);
 
 -- --------------------------------------------------------
 
@@ -2336,7 +2365,7 @@ CREATE TABLE `mark_divisions` (
   `percentage_to` float(10,2) DEFAULT NULL,
   `is_active` int(10) DEFAULT 1,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -2366,7 +2395,7 @@ CREATE TABLE `messages` (
   `schedule_section` varchar(255) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -2376,7 +2405,7 @@ CREATE TABLE `messages` (
 
 CREATE TABLE `migrations` (
   `version` bigint(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -2395,7 +2424,7 @@ CREATE TABLE `multi_branch` (
   `directory_path` varchar(500) DEFAULT NULL,
   `is_verified` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -2409,7 +2438,7 @@ CREATE TABLE `notification_roles` (
   `role_id` int(11) DEFAULT NULL,
   `is_active` int(11) DEFAULT 0,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -2436,7 +2465,7 @@ CREATE TABLE `notification_setting` (
   `template` longtext NOT NULL,
   `variables` text NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `notification_setting`
@@ -2486,7 +2515,7 @@ CREATE TABLE `offline_fees_payments` (
   `approved_by` int(11) DEFAULT NULL,
   `is_active` varchar(1) DEFAULT '0',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -2519,7 +2548,7 @@ CREATE TABLE `onlineexam` (
   `publish_result_notification` int(1) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -2532,7 +2561,7 @@ CREATE TABLE `onlineexam_attempts` (
   `onlineexam_student_id` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -2550,7 +2579,7 @@ CREATE TABLE `onlineexam_questions` (
   `is_active` varchar(1) DEFAULT '0',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -2567,7 +2596,7 @@ CREATE TABLE `onlineexam_students` (
   `quiz_attempted` int(11) NOT NULL DEFAULT 0,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -2586,7 +2615,7 @@ CREATE TABLE `onlineexam_student_results` (
   `attachment_upload_name` varchar(250) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -2658,7 +2687,7 @@ CREATE TABLE `online_admissions` (
   `disable_at` date DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -2673,7 +2702,7 @@ CREATE TABLE `online_admission_custom_field_value` (
   `field_value` longtext NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -2686,7 +2715,7 @@ CREATE TABLE `online_admission_fields` (
   `name` varchar(250) DEFAULT NULL,
   `status` int(1) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `online_admission_fields`
@@ -2750,7 +2779,7 @@ CREATE TABLE `online_admission_payment` (
   `transaction_id` varchar(100) NOT NULL,
   `note` varchar(100) NOT NULL,
   `date` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -2776,7 +2805,7 @@ CREATE TABLE `payment_settings` (
   `paytm_industrytype` varchar(255) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -2791,7 +2820,7 @@ CREATE TABLE `payslip_allowance` (
   `amount` float NOT NULL,
   `staff_id` int(11) NOT NULL,
   `cal_type` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -2809,7 +2838,7 @@ CREATE TABLE `permission_category` (
   `enable_edit` int(11) DEFAULT 0,
   `enable_delete` int(11) DEFAULT 0,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `permission_category`
@@ -3049,7 +3078,8 @@ INSERT INTO `permission_category` (`id`, `perm_group_id`, `name`, `short_code`, 
 (10006, 1000, 'User Log Report', 'multi_branch_user_log_report', 1, 0, 0, 0, '2022-11-14 23:32:27'),
 (10007, 1000, 'Setting', 'multi_branch_setting', 1, 0, 0, 0, '2022-11-14 23:37:36'),
 (10008, 1001, 'Add School', 'add_school', 1, 1, 1, 1, '2022-11-14 23:37:36'),
-(10009, 1, 'Student Performance', 'student_performance', 1, 1, 1, 1, '2019-10-24 05:42:03');
+(10009, 1, 'Student Performance', 'student_performance', 1, 1, 1, 1, '2019-10-24 05:42:03'),
+(10010, 7, 'Assign Subject Teacher', 'assign_subject_teacher', 1, 1, 1, 1, '2018-06-22 10:30:52');
 
 -- --------------------------------------------------------
 
@@ -3064,7 +3094,7 @@ CREATE TABLE `permission_group` (
   `is_active` int(11) DEFAULT 0,
   `system` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `permission_group`
@@ -3117,7 +3147,7 @@ CREATE TABLE `permission_student` (
   `parent` int(11) NOT NULL,
   `group_id` int(11) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `permission_student`
@@ -3157,7 +3187,7 @@ CREATE TABLE `pickup_point` (
   `latitude` varchar(100) DEFAULT NULL,
   `longitude` varchar(100) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -3173,7 +3203,7 @@ CREATE TABLE `print_headerfooter` (
   `created_by` int(11) NOT NULL,
   `entry_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `print_headerfooter`
@@ -3210,7 +3240,7 @@ CREATE TABLE `questions` (
   `descriptive_word_limit` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -3227,7 +3257,7 @@ CREATE TABLE `read_notification` (
   `is_active` varchar(255) DEFAULT 'no',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -3239,7 +3269,7 @@ CREATE TABLE `reference` (
   `id` int(11) NOT NULL,
   `reference` varchar(100) NOT NULL,
   `description` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -3256,7 +3286,7 @@ CREATE TABLE `roles` (
   `is_superadmin` int(11) NOT NULL DEFAULT 0,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `roles`
@@ -3285,7 +3315,7 @@ CREATE TABLE `roles_permissions` (
   `can_edit` int(11) DEFAULT NULL,
   `can_delete` int(11) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `roles_permissions`
@@ -3733,7 +3763,7 @@ CREATE TABLE `room_types` (
   `description` text DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -3750,7 +3780,7 @@ CREATE TABLE `route_pickup_point` (
   `pickup_time` time DEFAULT NULL,
   `order_number` float NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -3763,7 +3793,7 @@ CREATE TABLE `school_houses` (
   `house_name` varchar(200) NOT NULL,
   `description` varchar(400) NOT NULL,
   `is_active` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -3921,7 +3951,7 @@ CREATE TABLE `sch_settings` (
   `offline_bank_payment_instruction` text NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `sch_settings`
@@ -3942,7 +3972,7 @@ CREATE TABLE `sections` (
   `is_active` varchar(255) DEFAULT 'no',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `sections`
@@ -3974,7 +4004,7 @@ CREATE TABLE `send_notification` (
   `is_active` varchar(255) DEFAULT 'no',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -3988,7 +4018,7 @@ CREATE TABLE `sessions` (
   `is_active` varchar(255) DEFAULT 'no',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `sessions`
@@ -4025,7 +4055,7 @@ CREATE TABLE `share_contents` (
   `description` text DEFAULT NULL,
   `created_by` int(10) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -4042,7 +4072,7 @@ CREATE TABLE `share_content_for` (
   `class_section_id` int(11) DEFAULT NULL,
   `share_content_id` int(11) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -4055,7 +4085,7 @@ CREATE TABLE `share_upload_contents` (
   `upload_content_id` int(11) DEFAULT NULL,
   `share_content_id` int(11) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -4076,7 +4106,7 @@ CREATE TABLE `sidebar_menus` (
   `access_permissions` text DEFAULT NULL,
   `is_active` int(1) NOT NULL DEFAULT 1,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `sidebar_menus`
@@ -4130,7 +4160,7 @@ CREATE TABLE `sidebar_sub_menus` (
   `addon_permission` varchar(100) DEFAULT NULL,
   `is_active` int(1) DEFAULT 1,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `sidebar_sub_menus`
@@ -4298,7 +4328,8 @@ INSERT INTO `sidebar_sub_menus` (`id`, `sidebar_menu_id`, `menu`, `key`, `lang_k
 (199, 33, 'report', NULL, 'report', 'admin/multibranch/finance/index', 1, '(\'multi_branch_daily_collection_report\', \'can_view\') || (\'multi_branch_payroll\', \'can_view\') || (\'multi_branch_income_report\', \'can_view\') || (\'multi_branch_expense_report\', \'can_view\') || (\'multi_branch_user_log_report\', \'can_view\')', NULL, 'finance', 'dailycollectionreport,payroll,incomelist,expenselist,incomereport,expensereport,userlogreport,index', '', 1, '2022-12-22 00:29:38'),
 (200, 33, 'setting', NULL, 'setting', 'admin/multibranch/branch', 1, '(\'multi_branch_setting\', \'can_view\')', NULL, 'branch', 'index', '', 1, '2022-11-15 00:15:32'),
 (201, 34, 'Add School', NULL, 'add_school', 'admin/staff/school_create', 1, '(\'multi_school\', \'can_view\')', NULL, 'staff', 'school_create', '', 1, '2023-08-14 17:27:26'),
-(202, 2, 'student_performance', NULL, 'student_performance', 'student/performance', 2, '(\'student_performance\', \'can_view\')', NULL, 'performance', 'create,import', NULL, 1, '2023-08-16 14:17:26');
+(202, 2, 'student_performance', NULL, 'student_performance', 'student/performance', 2, '(\'student_performance\', \'can_view\')', NULL, 'performance', 'create,import', NULL, 1, '2023-08-16 14:17:26'),
+(203, 14, 'assign_subject_teacher', NULL, 'assign_subject_teacher', 'admin/teacher/assignteacher', 3, '(\'assign_subject_teacher\', \'can_view\')', NULL, 'teacher', 'viewassignteacher,assignteacher', '', 1, '2023-08-22 11:48:54');
 
 -- --------------------------------------------------------
 
@@ -4320,7 +4351,7 @@ CREATE TABLE `sms_config` (
   `is_active` varchar(255) DEFAULT 'disabled',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -4333,7 +4364,7 @@ CREATE TABLE `sms_template` (
   `title` varchar(100) NOT NULL,
   `message` text NOT NULL,
   `created_at` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -4345,7 +4376,7 @@ CREATE TABLE `source` (
   `id` int(11) NOT NULL,
   `source` varchar(100) NOT NULL,
   `description` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -4403,7 +4434,7 @@ CREATE TABLE `staff` (
   `is_active` int(11) NOT NULL,
   `verification_code` varchar(100) NOT NULL,
   `disable_at` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `staff`
@@ -4411,8 +4442,13 @@ CREATE TABLE `staff` (
 
 INSERT INTO `staff` (`id`, `employee_id`, `lang_id`, `currency_id`, `department`, `designation`, `qualification`, `work_exp`, `name`, `surname`, `father_name`, `mother_name`, `contact_no`, `emergency_contact_no`, `email`, `dob`, `marital_status`, `date_of_joining`, `date_of_leaving`, `local_address`, `permanent_address`, `note`, `image`, `password`, `gender`, `account_title`, `bank_account_no`, `bank_name`, `ifsc_code`, `bank_branch`, `payscale`, `basic_salary`, `epf_no`, `contract_type`, `shift`, `location`, `facebook`, `twitter`, `linkedin`, `instagram`, `resume`, `joining_letter`, `resignation_letter`, `other_document_name`, `other_document_file`, `user_id`, `is_active`, `verification_code`, `disable_at`) VALUES
 (1, '9000', 0, 0, NULL, NULL, '', '', 'Super Admin', '', '', '', '', '', 'ramuy@gmail.com', '2020-01-01', '', NULL, NULL, '', '', '', '', '$2y$10$9/ida2tAkg1OY8fUywuMCOsg7VlEob5zXJkonrX.7CQIbJfvwI4C.', 'Male', '', '', '', '', '', '', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 1, '', NULL),
-(2, '111', 0, 0, NULL, NULL, '', '', 'Issac', '', '', '', '', '', 'issac@gmail.com', '2004-02-04', '', NULL, NULL, '', '', '', '', '$2y$10$xKFNR4Rg21nQ..La9wEyjOmOBByAMCiYLodpeHpwapIqxi1TaI8F2', 'Male', '', '', '', '', '', '', 0, '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 1, '', NULL),
-(3, '123', 0, 0, NULL, NULL, '', '', 'john', '', '', '', '', '', 'teacher1@gmail.com', '2013-06-05', '', NULL, NULL, '', '', '', '', '$2y$10$9iMcjxmrXqeAsh7XII0w/u6X4WhE1oR1wI7Jp2gf2nmH1KX51tdBa', 'Male', '', '', '', '', '', '', 0, '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 1, '', NULL);
+(2, '111', 0, 0, NULL, NULL, '', '', 'Issac', '', '', '', '', '', 'teacher2@gmail.com', '2004-02-04', '', NULL, NULL, '', '', '', '', '$2y$10$xKFNR4Rg21nQ..La9wEyjOmOBByAMCiYLodpeHpwapIqxi1TaI8F2', 'Male', '', '', '', '', '', '', 0, '', '', '', '', '', '', '', '', '', '', '', 'Other Document', '', 0, 1, '', NULL),
+(3, '123', 0, 0, NULL, NULL, '', '', 'john', '', '', '', '', '', 'teacher1@gmail.com', '2013-06-05', '', NULL, NULL, '', '', '', '', '$2y$10$9iMcjxmrXqeAsh7XII0w/u6X4WhE1oR1wI7Jp2gf2nmH1KX51tdBa', 'Male', '', '', '', '', '', '', 0, '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 1, '', NULL),
+(4, '444', 0, 0, NULL, NULL, '', '', 'Rohith', '', '', '', '', '', 'admin@gmail.com', '2017-05-10', '', NULL, NULL, '', '', '', '', '$2y$10$6zvZYDxoPWljJwCX883fz.mIPVzajS9TtaitshvkEgd4kbTvuIRa2', 'Male', '', '', '', '', '', '', 0, '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 1, '', NULL),
+(5, '1234', 0, 0, NULL, NULL, '', '', 'babu', '', '', '', '', '', 'subteacher1@gmail.com', '2019-06-20', '', NULL, NULL, '', '', '', '', '$2y$10$sbOKeh.yFTdo3d5gw4.MWO.aBfeaCpA.mwQrO3dJxkPJA86TnwGpC', 'Male', '', '', '', '', '', '', 0, '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 1, '', NULL),
+(6, '12345', 0, 0, NULL, NULL, '', '', 'Rao', '', '', '', '', '', 'subteacher2@gmail.com', '2017-06-28', '', NULL, NULL, '', '', '', '', '$2y$10$63dejo5IUfsJu7evh2w6y.fbSNSVg8nhK6fxKNNMvpSxpjHb8kbYe', 'Male', '', '', '', '', '', '', 0, '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 1, '', NULL),
+(7, '2212', 0, 0, NULL, NULL, '', '', 'naresh', '', '', '', '', '', 'subteacher3@gmail.com', '2018-06-20', '', NULL, NULL, '', '', '', '', '$2y$10$ukZSSfUb6vj.sd85xdRlFOIxGPVDHtHOQ4ZiME9ceGL7lQLqsJZ3W', 'Male', '', '', '', '', '', '', 0, '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 1, '', NULL),
+(8, '2233', 0, 0, NULL, NULL, '', '', 'harish', '', '', '', '', '', 'subteacher4@gmail.com', '2019-06-20', '', NULL, NULL, '', '', '', '', '$2y$10$soudx1HJWOqYBEWUArtpneABdGSgIZHgh/YMa4cxB..3c1btRvSgO', 'Male', '', '', '', '', '', '', 0, '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 1, '', NULL);
 
 -- --------------------------------------------------------
 
@@ -4431,7 +4467,7 @@ CREATE TABLE `staff_attendance` (
   `is_active` int(11) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -4446,7 +4482,7 @@ CREATE TABLE `staff_attendance_type` (
   `is_active` varchar(50) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `staff_attendance_type`
@@ -4469,7 +4505,7 @@ CREATE TABLE `staff_designation` (
   `id` int(11) NOT NULL,
   `designation` varchar(200) NOT NULL,
   `is_active` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -4500,7 +4536,7 @@ CREATE TABLE `staff_id_card` (
   `enable_staff_phone` tinyint(1) NOT NULL COMMENT '0=disable,1=enable',
   `enable_staff_barcode` tinyint(1) NOT NULL COMMENT '0=disable,1=enable',
   `status` tinyint(1) NOT NULL COMMENT '0=disable,1=enable'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `staff_id_card`
@@ -4521,7 +4557,7 @@ CREATE TABLE `staff_leave_details` (
   `staff_id` int(11) NOT NULL,
   `leave_type_id` int(11) NOT NULL,
   `alloted_leave` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -4543,7 +4579,7 @@ CREATE TABLE `staff_leave_request` (
   `document_file` varchar(200) NOT NULL,
   `date` date NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -4557,7 +4593,7 @@ CREATE TABLE `staff_payroll` (
   `pay_scale` varchar(200) NOT NULL,
   `grade` varchar(50) NOT NULL,
   `is_active` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -4582,7 +4618,7 @@ CREATE TABLE `staff_payslip` (
   `remark` varchar(200) NOT NULL,
   `generated_by` int(11) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -4599,7 +4635,7 @@ CREATE TABLE `staff_rating` (
   `role` varchar(255) NOT NULL,
   `status` int(11) NOT NULL COMMENT '0 decline, 1 Approve',
   `entrydt` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -4614,7 +4650,7 @@ CREATE TABLE `staff_roles` (
   `is_active` int(11) DEFAULT 0,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `staff_roles`
@@ -4623,7 +4659,12 @@ CREATE TABLE `staff_roles` (
 INSERT INTO `staff_roles` (`id`, `role_id`, `staff_id`, `is_active`, `created_at`, `updated_at`) VALUES
 (1, 7, 1, 0, '2023-08-12 07:22:31', NULL),
 (2, 2, 2, 0, '2023-08-16 13:23:53', NULL),
-(3, 2, 3, 0, '2023-08-16 13:34:04', NULL);
+(3, 2, 3, 0, '2023-08-16 13:34:04', NULL),
+(0, 1, 4, 0, '2023-08-21 09:57:10', NULL),
+(0, 2, 5, 0, '2023-08-22 11:24:19', NULL),
+(0, 2, 6, 0, '2023-08-22 11:26:40', NULL),
+(0, 2, 7, 0, '2023-08-22 11:40:48', NULL),
+(0, 2, 8, 0, '2023-08-22 11:41:49', NULL);
 
 -- --------------------------------------------------------
 
@@ -4641,7 +4682,7 @@ CREATE TABLE `staff_timeline` (
   `status` varchar(200) NOT NULL,
   `date` date NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -4651,18 +4692,18 @@ CREATE TABLE `staff_timeline` (
 
 CREATE TABLE `states` (
   `id` mediumint(8) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `country_id` mediumint(8) UNSIGNED NOT NULL,
-  `country_code` char(2) NOT NULL,
-  `fips_code` varchar(255) DEFAULT NULL,
-  `iso2` varchar(255) DEFAULT NULL,
-  `type` varchar(191) DEFAULT NULL,
+  `country_code` char(2) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `fips_code` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `iso2` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `type` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `latitude` decimal(10,8) DEFAULT NULL,
   `longitude` decimal(11,8) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `flag` tinyint(1) NOT NULL DEFAULT 1,
-  `wikiDataId` varchar(255) DEFAULT NULL COMMENT 'Rapid API GeoDB Cities'
+  `wikiDataId` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Rapid API GeoDB Cities'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=COMPACT;
 
 --
@@ -9832,7 +9873,7 @@ CREATE TABLE `students` (
   `disable_at` date DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `students`
@@ -9869,7 +9910,7 @@ CREATE TABLE `student_applyleave` (
   `approve_date` date DEFAULT NULL,
   `request_type` int(11) NOT NULL COMMENT '0 student,1 staff',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -9888,7 +9929,7 @@ CREATE TABLE `student_attendences` (
   `is_active` varchar(255) DEFAULT 'no',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -9901,7 +9942,7 @@ CREATE TABLE `student_doc` (
   `student_id` int(11) DEFAULT NULL,
   `title` varchar(200) DEFAULT NULL,
   `doc` varchar(200) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -9914,7 +9955,7 @@ CREATE TABLE `student_edit_fields` (
   `name` varchar(250) DEFAULT NULL,
   `status` int(1) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -9935,7 +9976,7 @@ CREATE TABLE `student_fees` (
   `is_active` varchar(255) DEFAULT 'no',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -9951,7 +9992,7 @@ CREATE TABLE `student_fees_deposite` (
   `amount_detail` text DEFAULT NULL,
   `is_active` varchar(10) NOT NULL DEFAULT 'no',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -9968,7 +10009,7 @@ CREATE TABLE `student_fees_discounts` (
   `description` text DEFAULT NULL,
   `is_active` varchar(10) NOT NULL DEFAULT 'no',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -9984,7 +10025,7 @@ CREATE TABLE `student_fees_master` (
   `amount` float(10,2) DEFAULT 0.00,
   `is_active` varchar(10) NOT NULL DEFAULT 'no',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -10002,7 +10043,7 @@ CREATE TABLE `student_fees_processing` (
   `amount_detail` text DEFAULT NULL,
   `is_active` varchar(10) NOT NULL DEFAULT 'no',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -10027,7 +10068,7 @@ CREATE TABLE `student_session` (
   `default_login` int(1) NOT NULL DEFAULT 0,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `student_session`
@@ -10048,6 +10089,32 @@ INSERT INTO `student_session` (`id`, `session_id`, `student_id`, `class_id`, `se
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `student_skills`
+--
+
+CREATE TABLE `student_skills` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `is_active` tinyint(4) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `student_skills`
+--
+
+INSERT INTO `student_skills` (`id`, `name`, `is_active`) VALUES
+(1, 'Active listening', 0),
+(2, 'Writing', 0),
+(3, 'Speaking', 0),
+(4, 'Presenting', 0),
+(5, 'Empathy', 0),
+(6, 'Creativity', 0),
+(7, 'Problem solving', 0),
+(8, 'Innovative thinking', 0);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `student_subject_attendances`
 --
 
@@ -10059,7 +10126,7 @@ CREATE TABLE `student_subject_attendances` (
   `date` date DEFAULT NULL,
   `remark` text DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -10077,7 +10144,7 @@ CREATE TABLE `student_timeline` (
   `status` varchar(200) NOT NULL,
   `created_student_id` int(11) NOT NULL,
   `date` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -10092,7 +10159,7 @@ CREATE TABLE `student_transport_fees` (
   `route_pickup_point_id` int(11) NOT NULL,
   `generated_by` int(11) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -10108,7 +10175,19 @@ CREATE TABLE `subjects` (
   `is_active` varchar(255) DEFAULT 'no',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `subjects`
+--
+
+INSERT INTO `subjects` (`id`, `name`, `code`, `type`, `is_active`, `created_at`, `updated_at`) VALUES
+(1, 'Telugu', 'tel', 'theory', 'no', '2023-08-21 09:27:12', NULL),
+(2, 'English', 'eng', 'theory', 'no', '2023-08-21 09:27:29', NULL),
+(3, 'Maths', 'mat', 'theory', 'no', '2023-08-21 09:27:41', NULL),
+(4, 'Hindhi', 'hin', 'theory', 'no', '2023-08-22 10:55:05', NULL),
+(5, 'Science', 'sci', 'theory', 'no', '2023-08-22 10:55:26', NULL),
+(6, 'Social', 'soc', 'theory', 'no', '2023-08-22 10:55:57', NULL);
 
 -- --------------------------------------------------------
 
@@ -10122,7 +10201,15 @@ CREATE TABLE `subject_groups` (
   `description` text DEFAULT NULL,
   `session_id` int(11) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `subject_groups`
+--
+
+INSERT INTO `subject_groups` (`id`, `name`, `description`, `session_id`, `created_at`) VALUES
+(1, 'Group 1', '', 18, '2023-08-21 09:28:07'),
+(2, 'Group 2', '', 18, '2023-08-21 09:28:28');
 
 -- --------------------------------------------------------
 
@@ -10139,7 +10226,15 @@ CREATE TABLE `subject_group_class_sections` (
   `is_active` int(11) DEFAULT 0,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `subject_group_class_sections`
+--
+
+INSERT INTO `subject_group_class_sections` (`id`, `subject_group_id`, `class_section_id`, `session_id`, `description`, `is_active`, `created_at`, `updated_at`) VALUES
+(1, 2, 4, 18, NULL, 0, '2023-08-21 09:31:23', NULL),
+(2, 1, 2, 18, NULL, 0, '2023-08-21 09:31:39', NULL);
 
 -- --------------------------------------------------------
 
@@ -10153,7 +10248,25 @@ CREATE TABLE `subject_group_subjects` (
   `session_id` int(11) DEFAULT NULL,
   `subject_id` int(11) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `subject_group_subjects`
+--
+
+INSERT INTO `subject_group_subjects` (`id`, `subject_group_id`, `session_id`, `subject_id`, `created_at`) VALUES
+(1, 2, 18, 1, '2023-08-21 09:31:23'),
+(2, 1, 18, 3, '2023-08-21 09:31:40'),
+(3, 2, 18, 2, '2023-08-21 09:32:23'),
+(4, 2, 18, 3, '2023-08-21 09:32:23'),
+(5, 2, 18, 4, '2023-08-22 10:59:00'),
+(6, 2, 18, 5, '2023-08-22 10:59:00'),
+(7, 2, 18, 6, '2023-08-22 10:59:00'),
+(8, 1, 18, 1, '2023-08-22 10:59:28'),
+(9, 1, 18, 2, '2023-08-22 10:59:28'),
+(10, 1, 18, 4, '2023-08-22 10:59:28'),
+(11, 1, 18, 5, '2023-08-22 10:59:28'),
+(12, 1, 18, 6, '2023-08-22 10:59:28');
 
 -- --------------------------------------------------------
 
@@ -10181,7 +10294,7 @@ CREATE TABLE `subject_syllabus` (
   `comprehensive_questions` text NOT NULL,
   `status` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -10204,7 +10317,7 @@ CREATE TABLE `subject_timetable` (
   `end_time` time DEFAULT NULL,
   `room_no` varchar(20) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -10220,7 +10333,37 @@ CREATE TABLE `submit_assignment` (
   `docs` varchar(225) NOT NULL,
   `file_name` text DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `teacher_subjects`
+--
+
+CREATE TABLE `teacher_subjects` (
+  `id` int(11) NOT NULL,
+  `session_id` int(11) DEFAULT NULL,
+  `class_section_id` int(11) DEFAULT NULL,
+  `subject_id` int(11) DEFAULT NULL,
+  `teacher_id` int(11) DEFAULT NULL,
+  `description` varchar(100) DEFAULT NULL,
+  `is_active` varchar(255) DEFAULT 'no',
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `updated_at` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `teacher_subjects`
+--
+
+INSERT INTO `teacher_subjects` (`id`, `session_id`, `class_section_id`, `subject_id`, `teacher_id`, `description`, `is_active`, `created_at`, `updated_at`) VALUES
+(1, 18, 4, 1, 2, NULL, 'no', '2023-08-22 11:51:06', NULL),
+(2, 18, 4, 2, 3, NULL, 'no', '2023-08-22 11:51:06', NULL),
+(3, 18, 4, 3, 5, NULL, 'no', '2023-08-22 11:51:07', NULL),
+(4, 18, 4, 4, 6, NULL, 'no', '2023-08-22 11:51:07', NULL),
+(5, 18, 4, 5, 7, NULL, 'no', '2023-08-22 11:51:07', NULL),
+(6, 18, 4, 6, 8, NULL, 'no', '2023-08-22 11:51:08', NULL);
 
 -- --------------------------------------------------------
 
@@ -10254,7 +10397,7 @@ CREATE TABLE `template_admitcards` (
   `content_footer` text DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `template_admitcards`
@@ -10303,7 +10446,7 @@ CREATE TABLE `template_marksheets` (
   `content_footer` text DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `template_marksheets`
@@ -10326,7 +10469,7 @@ CREATE TABLE `topic` (
   `status` int(11) NOT NULL,
   `complete_date` date DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -10343,7 +10486,7 @@ CREATE TABLE `transport_feemaster` (
   `fine_type` varchar(50) DEFAULT NULL,
   `fine_percentage` float(10,2) DEFAULT 0.00,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -10359,7 +10502,7 @@ CREATE TABLE `transport_route` (
   `is_active` varchar(255) DEFAULT 'no',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -10383,7 +10526,7 @@ CREATE TABLE `upload_contents` (
   `vid_title` varchar(250) NOT NULL,
   `upload_by` int(10) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -10399,7 +10542,7 @@ CREATE TABLE `userlog` (
   `ipaddress` varchar(100) DEFAULT NULL,
   `user_agent` varchar(500) DEFAULT NULL,
   `login_datetime` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `userlog`
@@ -10413,7 +10556,21 @@ INSERT INTO `userlog` (`id`, `user`, `role`, `class_section_id`, `ipaddress`, `u
 (7, 'issac@gmail.com', 'Teacher', NULL, '::1', 'Chrome 115.0.0.0, Windows 10', '2023-08-16 07:55:55'),
 (8, 'teacher1@gmail.com', 'Teacher', NULL, '::1', 'Chrome 115.0.0.0, Windows 10', '2023-08-16 08:05:49'),
 (9, 'teacher1@gmail.com', 'Teacher', NULL, '::1', 'Chrome 115.0.0.0, Windows 10', '2023-08-16 08:52:39'),
-(10, 'teacher1@gmail.com', 'Teacher', NULL, '::1', 'Chrome 115.0.0.0, Windows 10', '2023-08-16 09:19:40');
+(10, 'teacher1@gmail.com', 'Teacher', NULL, '::1', 'Chrome 115.0.0.0, Windows 10', '2023-08-16 09:19:40'),
+(0, 'ramuy@gmail.com', 'Super Admin', NULL, '::1', 'Chrome 116.0.0.0, Windows 10', '2023-08-17 23:29:34'),
+(0, 'teacher1@gmail.com', 'Teacher', NULL, '::1', 'Chrome 116.0.0.0, Windows 10', '2023-08-17 23:31:47'),
+(0, 'teacher1@gmail.com', 'Teacher', NULL, '::1', 'Chrome 116.0.0.0, Windows 10', '2023-08-18 01:09:56'),
+(0, 'ramuy@gmail.com', 'Super Admin', NULL, '::1', 'Chrome 116.0.0.0, Windows 10', '2023-08-18 04:15:54'),
+(0, 'teacher1@gmail.com', 'Teacher', NULL, '::1', 'Chrome 116.0.0.0, Windows 10', '2023-08-18 04:39:20'),
+(0, 'ramuy@gmail.com', 'Super Admin', NULL, '::1', 'Chrome 116.0.0.0, Windows 10', '2023-08-18 05:34:31'),
+(0, 'teacher1@gmail.com', 'Teacher', NULL, '::1', 'Chrome 116.0.0.0, Windows 10', '2023-08-21 03:42:29'),
+(0, 'ramuy@gmail.com', 'Super Admin', NULL, '::1', 'Chrome 116.0.0.0, Windows 10', '2023-08-21 03:49:21'),
+(0, 'admin@gmail.com', 'Admin', NULL, '::1', 'Chrome 116.0.0.0, Windows 10', '2023-08-21 04:28:51'),
+(0, 'teacher2@gmail.com', 'Teacher', NULL, '::1', 'Chrome 116.0.0.0, Windows 10', '2023-08-21 04:32:00'),
+(0, 'teacher1@gmail.com', 'Teacher', NULL, '::1', 'Chrome 116.0.0.0, Windows 10', '2023-08-21 04:46:57'),
+(0, 'ramuy@gmail.com', 'Super Admin', NULL, '::1', 'Chrome 116.0.0.0, Windows 10', '2023-08-22 04:47:57'),
+(0, 'subteacher1@gmail.com', 'Teacher', NULL, '::1', 'Chrome 116.0.0.0, Windows 10', '2023-08-22 06:22:18'),
+(0, 'teacher1@gmail.com', 'Teacher', NULL, '::1', 'Chrome 116.0.0.0, Windows 10', '2023-08-22 06:48:42');
 
 -- --------------------------------------------------------
 
@@ -10434,7 +10591,7 @@ CREATE TABLE `users` (
   `is_active` varchar(255) DEFAULT 'yes',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `users`
@@ -10476,7 +10633,7 @@ CREATE TABLE `users_authentication` (
   `expired_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `created_at` date DEFAULT NULL,
   `updated_at` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -10498,7 +10655,7 @@ CREATE TABLE `vehicles` (
   `driver_contact` varchar(20) DEFAULT NULL,
   `note` text DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -10511,7 +10668,7 @@ CREATE TABLE `vehicle_routes` (
   `route_id` int(11) DEFAULT NULL,
   `vehicle_id` int(11) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -10531,7 +10688,7 @@ CREATE TABLE `video_tutorial` (
   `video_link` varchar(100) NOT NULL,
   `created_by` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -10544,7 +10701,7 @@ CREATE TABLE `video_tutorial_class_sections` (
   `video_tutorial_id` int(11) NOT NULL,
   `class_section_id` int(11) NOT NULL,
   `created_date` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -10570,7 +10727,7 @@ CREATE TABLE `visitors_book` (
   `image` varchar(100) DEFAULT NULL,
   `meeting_with` varchar(20) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -10583,7 +10740,7 @@ CREATE TABLE `visitors_purpose` (
   `visitors_purpose` varchar(100) NOT NULL,
   `description` text NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Indexes for dumped tables
@@ -10814,596 +10971,15 @@ ALTER TABLE `email_template`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `email_template_attachment`
---
-ALTER TABLE `email_template_attachment`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `enquiry`
---
-ALTER TABLE `enquiry`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `created_by` (`created_by`),
-  ADD KEY `assigned` (`assigned`),
-  ADD KEY `enquiry_ibfk_4` (`class_id`);
-
---
--- Indexes for table `enquiry_type`
---
-ALTER TABLE `enquiry_type`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `events`
---
-ALTER TABLE `events`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `role_id` (`role_id`);
-
---
--- Indexes for table `exams`
---
-ALTER TABLE `exams`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `sesion_id` (`sesion_id`);
-
---
--- Indexes for table `exam_groups`
---
-ALTER TABLE `exam_groups`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `exam_group_class_batch_exams`
---
-ALTER TABLE `exam_group_class_batch_exams`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `exam_group_id` (`exam_group_id`),
-  ADD KEY `exam_group_class_batch_exams_ibfk_2` (`session_id`);
-
---
--- Indexes for table `exam_group_class_batch_exam_students`
---
-ALTER TABLE `exam_group_class_batch_exam_students`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `exam_group_class_batch_exam_id` (`exam_group_class_batch_exam_id`),
-  ADD KEY `student_id` (`student_id`),
-  ADD KEY `student_session_id` (`student_session_id`);
-
---
--- Indexes for table `exam_group_class_batch_exam_subjects`
---
-ALTER TABLE `exam_group_class_batch_exam_subjects`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `exam_group_class_batch_exams_id` (`exam_group_class_batch_exams_id`),
-  ADD KEY `subject_id` (`subject_id`);
-
---
--- Indexes for table `exam_group_exam_connections`
---
-ALTER TABLE `exam_group_exam_connections`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `exam_group_id` (`exam_group_id`),
-  ADD KEY `exam_group_class_batch_exams_id` (`exam_group_class_batch_exams_id`);
-
---
--- Indexes for table `exam_group_exam_results`
---
-ALTER TABLE `exam_group_exam_results`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `exam_group_class_batch_exam_subject_id` (`exam_group_class_batch_exam_subject_id`),
-  ADD KEY `exam_group_student_id` (`exam_group_student_id`),
-  ADD KEY `exam_group_class_batch_exam_student_id` (`exam_group_class_batch_exam_student_id`);
-
---
--- Indexes for table `exam_group_students`
---
-ALTER TABLE `exam_group_students`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `exam_group_id` (`exam_group_id`),
-  ADD KEY `student_id` (`student_id`),
-  ADD KEY `student_session_id` (`student_session_id`);
-
---
--- Indexes for table `exam_schedules`
---
-ALTER TABLE `exam_schedules`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `teacher_subject_id` (`teacher_subject_id`),
-  ADD KEY `session_id` (`session_id`),
-  ADD KEY `exam_id` (`exam_id`);
-
---
--- Indexes for table `expenses`
---
-ALTER TABLE `expenses`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `exp_head_id` (`exp_head_id`);
-
---
--- Indexes for table `expense_head`
---
-ALTER TABLE `expense_head`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `feemasters`
---
-ALTER TABLE `feemasters`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `session_id` (`session_id`),
-  ADD KEY `feetype_id` (`feetype_id`),
-  ADD KEY `class_id` (`class_id`);
-
---
--- Indexes for table `fees_discounts`
---
-ALTER TABLE `fees_discounts`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `session_id` (`session_id`);
-
---
--- Indexes for table `fees_reminder`
---
-ALTER TABLE `fees_reminder`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `feetype`
---
-ALTER TABLE `feetype`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `fee_groups`
---
-ALTER TABLE `fee_groups`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `fee_groups_feetype`
---
-ALTER TABLE `fee_groups_feetype`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fee_session_group_id` (`fee_session_group_id`),
-  ADD KEY `fee_groups_id` (`fee_groups_id`),
-  ADD KEY `feetype_id` (`feetype_id`),
-  ADD KEY `session_id` (`session_id`);
-
---
--- Indexes for table `fee_receipt_no`
---
-ALTER TABLE `fee_receipt_no`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `fee_session_groups`
---
-ALTER TABLE `fee_session_groups`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fee_groups_id` (`fee_groups_id`),
-  ADD KEY `session_id` (`session_id`);
-
---
--- Indexes for table `filetypes`
---
-ALTER TABLE `filetypes`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `follow_up`
---
-ALTER TABLE `follow_up`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `enquiry_id` (`enquiry_id`),
-  ADD KEY `followup_by` (`followup_by`);
-
---
--- Indexes for table `front_cms_media_gallery`
---
-ALTER TABLE `front_cms_media_gallery`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `front_cms_menus`
---
-ALTER TABLE `front_cms_menus`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `front_cms_menu_items`
---
-ALTER TABLE `front_cms_menu_items`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `menu_id` (`menu_id`);
-
---
--- Indexes for table `front_cms_pages`
---
-ALTER TABLE `front_cms_pages`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `front_cms_page_contents`
---
-ALTER TABLE `front_cms_page_contents`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `page_id` (`page_id`);
-
---
--- Indexes for table `front_cms_programs`
---
-ALTER TABLE `front_cms_programs`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `front_cms_program_photos`
---
-ALTER TABLE `front_cms_program_photos`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `program_id` (`program_id`);
-
---
--- Indexes for table `front_cms_settings`
---
-ALTER TABLE `front_cms_settings`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `gateway_ins`
---
-ALTER TABLE `gateway_ins`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `online_admission_id` (`online_admission_id`);
-
---
--- Indexes for table `gateway_ins_response`
---
-ALTER TABLE `gateway_ins_response`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `gateway_ins_id` (`gateway_ins_id`);
-
---
--- Indexes for table `general_calls`
---
-ALTER TABLE `general_calls`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `grades`
---
-ALTER TABLE `grades`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `homework`
---
-ALTER TABLE `homework`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `subject_group_subject_id` (`subject_group_subject_id`),
-  ADD KEY `class_id` (`class_id`),
-  ADD KEY `section_id` (`section_id`),
-  ADD KEY `session_id` (`session_id`),
-  ADD KEY `staff_id` (`staff_id`),
-  ADD KEY `subject_id` (`subject_id`),
-  ADD KEY `evaluated_by` (`evaluated_by`),
-  ADD KEY `created_by` (`created_by`);
-
---
--- Indexes for table `homework_evaluation`
---
-ALTER TABLE `homework_evaluation`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `homework_id` (`homework_id`),
-  ADD KEY `student_id` (`student_id`),
-  ADD KEY `student_session_id` (`student_session_id`);
-
---
--- Indexes for table `hostel`
---
-ALTER TABLE `hostel`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `hostel_rooms`
---
-ALTER TABLE `hostel_rooms`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `hostel_id` (`hostel_id`),
-  ADD KEY `room_type_id` (`room_type_id`);
-
---
--- Indexes for table `id_card`
---
-ALTER TABLE `id_card`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `income`
---
-ALTER TABLE `income`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `income_head_id` (`income_head_id`);
-
---
--- Indexes for table `income_head`
---
-ALTER TABLE `income_head`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `item`
---
-ALTER TABLE `item`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `item_category_id` (`item_category_id`),
-  ADD KEY `item_store_id` (`item_store_id`),
-  ADD KEY `item_supplier_id` (`item_supplier_id`);
-
---
--- Indexes for table `item_category`
---
-ALTER TABLE `item_category`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `item_issue`
---
-ALTER TABLE `item_issue`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `item_id` (`item_id`),
-  ADD KEY `item_category_id` (`item_category_id`),
-  ADD KEY `issue_to` (`issue_to`),
-  ADD KEY `issue_by` (`issue_by`);
-
---
--- Indexes for table `item_stock`
---
-ALTER TABLE `item_stock`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `item_id` (`item_id`),
-  ADD KEY `supplier_id` (`supplier_id`),
-  ADD KEY `store_id` (`store_id`);
-
---
--- Indexes for table `item_store`
---
-ALTER TABLE `item_store`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `item_supplier`
---
-ALTER TABLE `item_supplier`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `languages`
---
-ALTER TABLE `languages`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `leave_types`
---
-ALTER TABLE `leave_types`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `type` (`type`);
-
---
--- Indexes for table `lesson`
---
-ALTER TABLE `lesson`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `session_id` (`session_id`),
-  ADD KEY `subject_group_subject_id` (`subject_group_subject_id`),
-  ADD KEY `subject_group_class_sections_id` (`subject_group_class_sections_id`);
-
---
--- Indexes for table `lesson_plan_forum`
---
-ALTER TABLE `lesson_plan_forum`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `subject_syllabus_id` (`subject_syllabus_id`),
-  ADD KEY `student_id` (`student_id`),
-  ADD KEY `staff_id` (`staff_id`);
-
---
--- Indexes for table `libarary_members`
---
-ALTER TABLE `libarary_members`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `logs`
---
-ALTER TABLE `logs`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `mark_divisions`
---
-ALTER TABLE `mark_divisions`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `messages`
---
-ALTER TABLE `messages`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `multi_branch`
---
-ALTER TABLE `multi_branch`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `notification_roles`
---
-ALTER TABLE `notification_roles`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `send_notification_id` (`send_notification_id`),
-  ADD KEY `role_id` (`role_id`);
-
---
--- Indexes for table `notification_setting`
---
-ALTER TABLE `notification_setting`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `offline_fees_payments`
---
-ALTER TABLE `offline_fees_payments`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `student_fees_master_id` (`student_fees_master_id`),
-  ADD KEY `fee_groups_feetype_id` (`fee_groups_feetype_id`),
-  ADD KEY `student_transport_fee_id` (`student_transport_fee_id`),
-  ADD KEY `offline_fees_payments_ibfk_4` (`approved_by`),
-  ADD KEY `student_session_id` (`student_session_id`);
-
---
--- Indexes for table `onlineexam`
---
-ALTER TABLE `onlineexam`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `session_id` (`session_id`);
-
---
--- Indexes for table `onlineexam_attempts`
---
-ALTER TABLE `onlineexam_attempts`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `onlineexam_student_id` (`onlineexam_student_id`);
-
---
--- Indexes for table `onlineexam_questions`
---
-ALTER TABLE `onlineexam_questions`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `onlineexam_id` (`onlineexam_id`),
-  ADD KEY `question_id` (`question_id`),
-  ADD KEY `session_id` (`session_id`);
-
---
--- Indexes for table `onlineexam_students`
---
-ALTER TABLE `onlineexam_students`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `onlineexam_id` (`onlineexam_id`),
-  ADD KEY `student_session_id` (`student_session_id`);
-
---
--- Indexes for table `onlineexam_student_results`
---
-ALTER TABLE `onlineexam_student_results`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `onlineexam_student_id` (`onlineexam_student_id`),
-  ADD KEY `onlineexam_question_id` (`onlineexam_question_id`);
-
---
--- Indexes for table `online_admissions`
---
-ALTER TABLE `online_admissions`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `class_section_id` (`class_section_id`),
-  ADD KEY `category_id` (`category_id`),
-  ADD KEY `hostel_room_id` (`hostel_room_id`),
-  ADD KEY `school_house_id` (`school_house_id`);
-
---
--- Indexes for table `online_admission_custom_field_value`
---
-ALTER TABLE `online_admission_custom_field_value`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `custom_field_id` (`custom_field_id`);
-
---
--- Indexes for table `online_admission_fields`
---
-ALTER TABLE `online_admission_fields`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `online_admission_payment`
---
-ALTER TABLE `online_admission_payment`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `online_admission_id` (`online_admission_id`);
-
---
--- Indexes for table `payment_settings`
---
-ALTER TABLE `payment_settings`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `payslip_allowance`
---
-ALTER TABLE `payslip_allowance`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `staff_id` (`staff_id`),
-  ADD KEY `payslip_id` (`payslip_id`);
-
---
 -- Indexes for table `permission_category`
 --
 ALTER TABLE `permission_category`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `idx_short_code` (`short_code`),
-  ADD KEY `perm_group_id` (`perm_group_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `permission_group`
 --
 ALTER TABLE `permission_group`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `permission_student`
---
-ALTER TABLE `permission_student`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `group_id` (`group_id`);
-
---
--- Indexes for table `pickup_point`
---
-ALTER TABLE `pickup_point`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `print_headerfooter`
---
-ALTER TABLE `print_headerfooter`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `questions`
---
-ALTER TABLE `questions`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `subject_id` (`subject_id`),
-  ADD KEY `staff_id` (`staff_id`),
-  ADD KEY `class_id` (`class_id`),
-  ADD KEY `section_id` (`section_id`),
-  ADD KEY `class_section_id` (`class_section_id`);
-
---
--- Indexes for table `read_notification`
---
-ALTER TABLE `read_notification`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `notification_id` (`notification_id`),
-  ADD KEY `staff_id` (`staff_id`),
-  ADD KEY `student_id` (`student_id`);
-
---
--- Indexes for table `reference`
---
-ALTER TABLE `reference`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -11413,212 +10989,28 @@ ALTER TABLE `roles`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `roles_permissions`
---
-ALTER TABLE `roles_permissions`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `role_id` (`role_id`),
-  ADD KEY `perm_cat_id` (`perm_cat_id`);
-
---
--- Indexes for table `room_types`
---
-ALTER TABLE `room_types`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `route_pickup_point`
---
-ALTER TABLE `route_pickup_point`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `transport_route_id` (`transport_route_id`),
-  ADD KEY `pickup_point_id` (`pickup_point_id`);
-
---
--- Indexes for table `school_houses`
---
-ALTER TABLE `school_houses`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `sch_settings`
---
-ALTER TABLE `sch_settings`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `lang_id` (`lang_id`),
-  ADD KEY `session_id` (`session_id`);
-
---
 -- Indexes for table `sections`
 --
 ALTER TABLE `sections`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `send_notification`
---
-ALTER TABLE `send_notification`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `created_id` (`created_id`);
-
---
--- Indexes for table `sessions`
---
-ALTER TABLE `sessions`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `share_contents`
---
-ALTER TABLE `share_contents`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `created_by` (`created_by`);
-
---
--- Indexes for table `share_content_for`
---
-ALTER TABLE `share_content_for`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `upload_content_id` (`share_content_id`),
-  ADD KEY `student_id` (`student_id`),
-  ADD KEY `staff_id` (`staff_id`),
-  ADD KEY `class_section_id` (`class_section_id`),
-  ADD KEY `user_parent_id` (`user_parent_id`);
-
---
--- Indexes for table `share_upload_contents`
---
-ALTER TABLE `share_upload_contents`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `upload_content_id` (`upload_content_id`),
-  ADD KEY `share_content_id` (`share_content_id`);
-
---
 -- Indexes for table `sidebar_menus`
 --
 ALTER TABLE `sidebar_menus`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `permission_group_id` (`permission_group_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `sidebar_sub_menus`
 --
 ALTER TABLE `sidebar_sub_menus`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `sidebar_menu_id` (`sidebar_menu_id`),
-  ADD KEY `permission_group_id` (`permission_group_id`);
-
---
--- Indexes for table `sms_config`
---
-ALTER TABLE `sms_config`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `sms_template`
---
-ALTER TABLE `sms_template`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `source`
---
-ALTER TABLE `source`
   ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `staff`
 --
 ALTER TABLE `staff`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `employee_id` (`employee_id`),
-  ADD KEY `designation` (`designation`),
-  ADD KEY `department` (`department`);
-
---
--- Indexes for table `staff_attendance`
---
-ALTER TABLE `staff_attendance`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `FK_staff_attendance_staff` (`staff_id`),
-  ADD KEY `FK_staff_attendance_staff_attendance_type` (`staff_attendance_type_id`);
-
---
--- Indexes for table `staff_attendance_type`
---
-ALTER TABLE `staff_attendance_type`
   ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `staff_designation`
---
-ALTER TABLE `staff_designation`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `staff_id_card`
---
-ALTER TABLE `staff_id_card`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `staff_leave_details`
---
-ALTER TABLE `staff_leave_details`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `FK_staff_leave_details_staff` (`staff_id`),
-  ADD KEY `FK_staff_leave_details_leave_types` (`leave_type_id`);
-
---
--- Indexes for table `staff_leave_request`
---
-ALTER TABLE `staff_leave_request`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `FK_staff_leave_request_staff` (`staff_id`),
-  ADD KEY `FK_staff_leave_request_leave_types` (`leave_type_id`),
-  ADD KEY `applied_by` (`applied_by`);
-
---
--- Indexes for table `staff_payroll`
---
-ALTER TABLE `staff_payroll`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `staff_payslip`
---
-ALTER TABLE `staff_payslip`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `FK_staff_payslip_staff` (`staff_id`);
-
---
--- Indexes for table `staff_rating`
---
-ALTER TABLE `staff_rating`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `FK_staff_rating_staff` (`staff_id`);
-
---
--- Indexes for table `staff_roles`
---
-ALTER TABLE `staff_roles`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `role_id` (`role_id`),
-  ADD KEY `staff_id` (`staff_id`);
-
---
--- Indexes for table `staff_timeline`
---
-ALTER TABLE `staff_timeline`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `FK_staff_timeline_staff` (`staff_id`);
-
---
--- Indexes for table `states`
---
-ALTER TABLE `states`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `country_region` (`country_id`);
 
 --
 -- Indexes for table `students`
@@ -11627,113 +11019,16 @@ ALTER TABLE `students`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `student_applyleave`
---
-ALTER TABLE `student_applyleave`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `student_session_id` (`student_session_id`),
-  ADD KEY `approve_by` (`approve_by`);
-
---
--- Indexes for table `student_attendences`
---
-ALTER TABLE `student_attendences`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `student_session_id` (`student_session_id`),
-  ADD KEY `attendence_type_id` (`attendence_type_id`);
-
---
--- Indexes for table `student_doc`
---
-ALTER TABLE `student_doc`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `student_edit_fields`
---
-ALTER TABLE `student_edit_fields`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `student_fees`
---
-ALTER TABLE `student_fees`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `feemaster_id` (`feemaster_id`),
-  ADD KEY `student_session_id` (`student_session_id`);
-
---
--- Indexes for table `student_fees_deposite`
---
-ALTER TABLE `student_fees_deposite`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `student_fees_master_id` (`student_fees_master_id`),
-  ADD KEY `fee_groups_feetype_id` (`fee_groups_feetype_id`),
-  ADD KEY `student_transport_fee_id` (`student_transport_fee_id`);
-
---
--- Indexes for table `student_fees_discounts`
---
-ALTER TABLE `student_fees_discounts`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `student_session_id` (`student_session_id`),
-  ADD KEY `fees_discount_id` (`fees_discount_id`);
-
---
--- Indexes for table `student_fees_master`
---
-ALTER TABLE `student_fees_master`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `student_session_id` (`student_session_id`),
-  ADD KEY `fee_session_group_id` (`fee_session_group_id`);
-
---
--- Indexes for table `student_fees_processing`
---
-ALTER TABLE `student_fees_processing`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `student_fees_master_id` (`student_fees_master_id`),
-  ADD KEY `fee_groups_feetype_id` (`fee_groups_feetype_id`),
-  ADD KEY `student_transport_fee_id` (`student_transport_fee_id`),
-  ADD KEY `gateway_ins_id` (`gateway_ins_id`);
-
---
 -- Indexes for table `student_session`
 --
 ALTER TABLE `student_session`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `session_id` (`session_id`),
-  ADD KEY `student_id` (`student_id`),
-  ADD KEY `class_id` (`class_id`),
-  ADD KEY `section_id` (`section_id`),
-  ADD KEY `student_session_ibfk_5` (`vehroute_id`),
-  ADD KEY `hostel_room_id` (`hostel_room_id`),
-  ADD KEY `student_session_ibfk_6` (`route_pickup_point_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `student_subject_attendances`
+-- Indexes for table `student_skills`
 --
-ALTER TABLE `student_subject_attendances`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `attendence_type_id` (`attendence_type_id`),
-  ADD KEY `student_session_id` (`student_session_id`),
-  ADD KEY `subject_timetable_id` (`subject_timetable_id`);
-
---
--- Indexes for table `student_timeline`
---
-ALTER TABLE `student_timeline`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `student_id` (`student_id`);
-
---
--- Indexes for table `student_transport_fees`
---
-ALTER TABLE `student_transport_fees`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `student_session_id` (`student_session_id`),
-  ADD KEY `route_pickup_point_id` (`route_pickup_point_id`),
-  ADD KEY `transport_feemaster_id` (`transport_feemaster_id`);
+ALTER TABLE `student_skills`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `subjects`
@@ -11745,901 +11040,45 @@ ALTER TABLE `subjects`
 -- Indexes for table `subject_groups`
 --
 ALTER TABLE `subject_groups`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `session_id` (`session_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `subject_group_class_sections`
 --
 ALTER TABLE `subject_group_class_sections`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `class_section_id` (`class_section_id`),
-  ADD KEY `subject_group_id` (`subject_group_id`),
-  ADD KEY `session_id` (`session_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `subject_group_subjects`
 --
 ALTER TABLE `subject_group_subjects`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `subject_group_id` (`subject_group_id`),
-  ADD KEY `session_id` (`session_id`),
-  ADD KEY `subject_id` (`subject_id`);
-
---
--- Indexes for table `subject_syllabus`
---
-ALTER TABLE `subject_syllabus`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `topic_id` (`topic_id`),
-  ADD KEY `session_id` (`session_id`),
-  ADD KEY `created_by` (`created_by`),
-  ADD KEY `created_for` (`created_for`);
-
---
--- Indexes for table `subject_timetable`
---
-ALTER TABLE `subject_timetable`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `class_id` (`class_id`),
-  ADD KEY `section_id` (`section_id`),
-  ADD KEY `subject_group_id` (`subject_group_id`),
-  ADD KEY `subject_group_subject_id` (`subject_group_subject_id`),
-  ADD KEY `staff_id` (`staff_id`),
-  ADD KEY `session_id` (`session_id`);
-
---
--- Indexes for table `submit_assignment`
---
-ALTER TABLE `submit_assignment`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `student_id` (`student_id`),
-  ADD KEY `homework_id` (`homework_id`);
-
---
--- Indexes for table `template_admitcards`
---
-ALTER TABLE `template_admitcards`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `template_marksheets`
+-- Indexes for table `teacher_subjects`
 --
-ALTER TABLE `template_marksheets`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `topic`
---
-ALTER TABLE `topic`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `session_id` (`session_id`),
-  ADD KEY `lesson_id` (`lesson_id`);
-
---
--- Indexes for table `transport_feemaster`
---
-ALTER TABLE `transport_feemaster`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `session_id` (`session_id`);
-
---
--- Indexes for table `transport_route`
---
-ALTER TABLE `transport_route`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `upload_contents`
---
-ALTER TABLE `upload_contents`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `upload_by` (`upload_by`),
-  ADD KEY `upload_contents_ibfk_2` (`content_type_id`);
-
---
--- Indexes for table `userlog`
---
-ALTER TABLE `userlog`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `class_section_id` (`class_section_id`);
-
---
--- Indexes for table `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `users_authentication`
---
-ALTER TABLE `users_authentication`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `vehicles`
---
-ALTER TABLE `vehicles`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `vehicle_routes`
---
-ALTER TABLE `vehicle_routes`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `route_id` (`route_id`),
-  ADD KEY `vehicle_id` (`vehicle_id`);
-
---
--- Indexes for table `video_tutorial`
---
-ALTER TABLE `video_tutorial`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `created_by` (`created_by`);
-
---
--- Indexes for table `video_tutorial_class_sections`
---
-ALTER TABLE `video_tutorial_class_sections`
+ALTER TABLE `teacher_subjects`
   ADD PRIMARY KEY (`id`),
   ADD KEY `class_section_id` (`class_section_id`),
-  ADD KEY `video_tutorial_id` (`video_tutorial_id`);
-
---
--- Indexes for table `visitors_book`
---
-ALTER TABLE `visitors_book`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `staff_id` (`staff_id`),
-  ADD KEY `student_session_id` (`student_session_id`);
-
---
--- Indexes for table `visitors_purpose`
---
-ALTER TABLE `visitors_purpose`
-  ADD PRIMARY KEY (`id`);
+  ADD KEY `session_id` (`session_id`),
+  ADD KEY `subject_id` (`subject_id`),
+  ADD KEY `teacher_id` (`teacher_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `alumni_events`
---
-ALTER TABLE `alumni_events`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `alumni_students`
---
-ALTER TABLE `alumni_students`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `attendence_type`
---
-ALTER TABLE `attendence_type`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- AUTO_INCREMENT for table `books`
---
-ALTER TABLE `books`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `book_issues`
---
-ALTER TABLE `book_issues`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `captcha`
---
-ALTER TABLE `captcha`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT for table `categories`
---
-ALTER TABLE `categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `certificates`
---
-ALTER TABLE `certificates`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `chat_connections`
---
-ALTER TABLE `chat_connections`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `chat_messages`
---
-ALTER TABLE `chat_messages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `chat_users`
---
-ALTER TABLE `chat_users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `classes`
---
-ALTER TABLE `classes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT for table `class_sections`
---
-ALTER TABLE `class_sections`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT for table `class_section_times`
---
-ALTER TABLE `class_section_times`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `class_teacher`
---
-ALTER TABLE `class_teacher`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `complaint`
---
-ALTER TABLE `complaint`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `complaint_type`
---
-ALTER TABLE `complaint_type`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `contents`
---
-ALTER TABLE `contents`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `content_for`
---
-ALTER TABLE `content_for`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `content_types`
---
-ALTER TABLE `content_types`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `countries`
---
-ALTER TABLE `countries`
-  MODIFY `id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=251;
-
---
--- AUTO_INCREMENT for table `currencies`
---
-ALTER TABLE `currencies`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=180;
-
---
--- AUTO_INCREMENT for table `custom_fields`
---
-ALTER TABLE `custom_fields`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `custom_field_values`
---
-ALTER TABLE `custom_field_values`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `daily_assignment`
---
-ALTER TABLE `daily_assignment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `department`
---
-ALTER TABLE `department`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `disable_reason`
---
-ALTER TABLE `disable_reason`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `dispatch_receive`
---
-ALTER TABLE `dispatch_receive`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `email_attachments`
---
-ALTER TABLE `email_attachments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `email_config`
---
-ALTER TABLE `email_config`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `email_template`
---
-ALTER TABLE `email_template`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `email_template_attachment`
---
-ALTER TABLE `email_template_attachment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `enquiry`
---
-ALTER TABLE `enquiry`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `enquiry_type`
---
-ALTER TABLE `enquiry_type`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `events`
---
-ALTER TABLE `events`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `exams`
---
-ALTER TABLE `exams`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `exam_groups`
---
-ALTER TABLE `exam_groups`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `exam_group_class_batch_exams`
---
-ALTER TABLE `exam_group_class_batch_exams`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `exam_group_class_batch_exam_students`
---
-ALTER TABLE `exam_group_class_batch_exam_students`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `exam_group_class_batch_exam_subjects`
---
-ALTER TABLE `exam_group_class_batch_exam_subjects`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `exam_group_exam_connections`
---
-ALTER TABLE `exam_group_exam_connections`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `exam_group_exam_results`
---
-ALTER TABLE `exam_group_exam_results`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `exam_group_students`
---
-ALTER TABLE `exam_group_students`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `exam_schedules`
---
-ALTER TABLE `exam_schedules`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `expenses`
---
-ALTER TABLE `expenses`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `expense_head`
---
-ALTER TABLE `expense_head`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `feemasters`
---
-ALTER TABLE `feemasters`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `fees_discounts`
---
-ALTER TABLE `fees_discounts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `fees_reminder`
---
-ALTER TABLE `fees_reminder`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT for table `feetype`
---
-ALTER TABLE `feetype`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `fee_groups`
---
-ALTER TABLE `fee_groups`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `fee_groups_feetype`
---
-ALTER TABLE `fee_groups_feetype`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `fee_receipt_no`
---
-ALTER TABLE `fee_receipt_no`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `fee_session_groups`
---
-ALTER TABLE `fee_session_groups`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `filetypes`
---
-ALTER TABLE `filetypes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `follow_up`
---
-ALTER TABLE `follow_up`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `front_cms_media_gallery`
---
-ALTER TABLE `front_cms_media_gallery`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `front_cms_menus`
---
-ALTER TABLE `front_cms_menus`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `front_cms_menu_items`
---
-ALTER TABLE `front_cms_menu_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT for table `front_cms_pages`
---
-ALTER TABLE `front_cms_pages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT for table `front_cms_page_contents`
---
-ALTER TABLE `front_cms_page_contents`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `front_cms_programs`
---
-ALTER TABLE `front_cms_programs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `front_cms_program_photos`
---
-ALTER TABLE `front_cms_program_photos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `front_cms_settings`
---
-ALTER TABLE `front_cms_settings`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `gateway_ins`
---
-ALTER TABLE `gateway_ins`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `gateway_ins_response`
---
-ALTER TABLE `gateway_ins_response`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `general_calls`
---
-ALTER TABLE `general_calls`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `grades`
---
-ALTER TABLE `grades`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `homework`
---
-ALTER TABLE `homework`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `homework_evaluation`
---
-ALTER TABLE `homework_evaluation`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `hostel`
---
-ALTER TABLE `hostel`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `hostel_rooms`
---
-ALTER TABLE `hostel_rooms`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `id_card`
---
-ALTER TABLE `id_card`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `income`
---
-ALTER TABLE `income`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `income_head`
---
-ALTER TABLE `income_head`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `item`
---
-ALTER TABLE `item`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `item_category`
---
-ALTER TABLE `item_category`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `item_issue`
---
-ALTER TABLE `item_issue`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `item_stock`
---
-ALTER TABLE `item_stock`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `item_store`
---
-ALTER TABLE `item_store`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `item_supplier`
---
-ALTER TABLE `item_supplier`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `languages`
---
-ALTER TABLE `languages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
-
---
--- AUTO_INCREMENT for table `leave_types`
---
-ALTER TABLE `leave_types`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `lesson`
---
-ALTER TABLE `lesson`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `lesson_plan_forum`
---
-ALTER TABLE `lesson_plan_forum`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `libarary_members`
---
-ALTER TABLE `libarary_members`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `logs`
---
-ALTER TABLE `logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
-
---
--- AUTO_INCREMENT for table `mark_divisions`
---
-ALTER TABLE `mark_divisions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `messages`
---
-ALTER TABLE `messages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `multi_branch`
---
-ALTER TABLE `multi_branch`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `notification_roles`
---
-ALTER TABLE `notification_roles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `notification_setting`
---
-ALTER TABLE `notification_setting`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
-
---
--- AUTO_INCREMENT for table `offline_fees_payments`
---
-ALTER TABLE `offline_fees_payments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `onlineexam`
---
-ALTER TABLE `onlineexam`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `onlineexam_attempts`
---
-ALTER TABLE `onlineexam_attempts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `onlineexam_questions`
---
-ALTER TABLE `onlineexam_questions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `onlineexam_students`
---
-ALTER TABLE `onlineexam_students`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `onlineexam_student_results`
---
-ALTER TABLE `onlineexam_student_results`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `online_admissions`
---
-ALTER TABLE `online_admissions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `online_admission_custom_field_value`
---
-ALTER TABLE `online_admission_custom_field_value`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `online_admission_fields`
---
-ALTER TABLE `online_admission_fields`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
-
---
--- AUTO_INCREMENT for table `online_admission_payment`
---
-ALTER TABLE `online_admission_payment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `payment_settings`
---
-ALTER TABLE `payment_settings`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `payslip_allowance`
---
-ALTER TABLE `payslip_allowance`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `permission_category`
 --
 ALTER TABLE `permission_category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10010;
-
---
--- AUTO_INCREMENT for table `permission_group`
---
-ALTER TABLE `permission_group`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1002;
-
---
--- AUTO_INCREMENT for table `permission_student`
---
-ALTER TABLE `permission_student`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
-
---
--- AUTO_INCREMENT for table `pickup_point`
---
-ALTER TABLE `pickup_point`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `print_headerfooter`
---
-ALTER TABLE `print_headerfooter`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT for table `questions`
---
-ALTER TABLE `questions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `read_notification`
---
-ALTER TABLE `read_notification`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `reference`
---
-ALTER TABLE `reference`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10011;
 
 --
 -- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- AUTO_INCREMENT for table `roles_permissions`
---
-ALTER TABLE `roles_permissions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1489;
-
---
--- AUTO_INCREMENT for table `room_types`
---
-ALTER TABLE `room_types`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `route_pickup_point`
---
-ALTER TABLE `route_pickup_point`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `school_houses`
---
-ALTER TABLE `school_houses`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `sections`
---
-ALTER TABLE `sections`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `send_notification`
---
-ALTER TABLE `send_notification`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `sessions`
---
-ALTER TABLE `sessions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
-
---
--- AUTO_INCREMENT for table `share_contents`
---
-ALTER TABLE `share_contents`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `share_content_for`
---
-ALTER TABLE `share_content_for`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `share_upload_contents`
---
-ALTER TABLE `share_upload_contents`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `sidebar_menus`
@@ -12651,103 +11090,13 @@ ALTER TABLE `sidebar_menus`
 -- AUTO_INCREMENT for table `sidebar_sub_menus`
 --
 ALTER TABLE `sidebar_sub_menus`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=203;
-
---
--- AUTO_INCREMENT for table `sms_config`
---
-ALTER TABLE `sms_config`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `sms_template`
---
-ALTER TABLE `sms_template`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `source`
---
-ALTER TABLE `source`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=204;
 
 --
 -- AUTO_INCREMENT for table `staff`
 --
 ALTER TABLE `staff`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `staff_attendance`
---
-ALTER TABLE `staff_attendance`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `staff_attendance_type`
---
-ALTER TABLE `staff_attendance_type`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT for table `staff_designation`
---
-ALTER TABLE `staff_designation`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `staff_id_card`
---
-ALTER TABLE `staff_id_card`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `staff_leave_details`
---
-ALTER TABLE `staff_leave_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `staff_leave_request`
---
-ALTER TABLE `staff_leave_request`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `staff_payroll`
---
-ALTER TABLE `staff_payroll`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `staff_payslip`
---
-ALTER TABLE `staff_payslip`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `staff_rating`
---
-ALTER TABLE `staff_rating`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `staff_roles`
---
-ALTER TABLE `staff_roles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `staff_timeline`
---
-ALTER TABLE `staff_timeline`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `states`
---
-ALTER TABLE `states`
-  MODIFY `id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5225;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `students`
@@ -12756,952 +11105,46 @@ ALTER TABLE `students`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `student_applyleave`
---
-ALTER TABLE `student_applyleave`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `student_attendences`
---
-ALTER TABLE `student_attendences`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `student_doc`
---
-ALTER TABLE `student_doc`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `student_edit_fields`
---
-ALTER TABLE `student_edit_fields`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `student_fees`
---
-ALTER TABLE `student_fees`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `student_fees_deposite`
---
-ALTER TABLE `student_fees_deposite`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `student_fees_discounts`
---
-ALTER TABLE `student_fees_discounts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `student_fees_master`
---
-ALTER TABLE `student_fees_master`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `student_fees_processing`
---
-ALTER TABLE `student_fees_processing`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `student_session`
 --
 ALTER TABLE `student_session`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `student_subject_attendances`
+-- AUTO_INCREMENT for table `student_skills`
 --
-ALTER TABLE `student_subject_attendances`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `student_timeline`
---
-ALTER TABLE `student_timeline`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `student_transport_fees`
---
-ALTER TABLE `student_transport_fees`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `student_skills`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `subjects`
 --
 ALTER TABLE `subjects`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `subject_groups`
 --
 ALTER TABLE `subject_groups`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `subject_group_class_sections`
 --
 ALTER TABLE `subject_group_class_sections`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `subject_group_subjects`
 --
 ALTER TABLE `subject_group_subjects`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT for table `subject_syllabus`
+-- AUTO_INCREMENT for table `teacher_subjects`
 --
-ALTER TABLE `subject_syllabus`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `subject_timetable`
---
-ALTER TABLE `subject_timetable`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `submit_assignment`
---
-ALTER TABLE `submit_assignment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `template_admitcards`
---
-ALTER TABLE `template_admitcards`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `template_marksheets`
---
-ALTER TABLE `template_marksheets`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `topic`
---
-ALTER TABLE `topic`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `transport_feemaster`
---
-ALTER TABLE `transport_feemaster`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `transport_route`
---
-ALTER TABLE `transport_route`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `upload_contents`
---
-ALTER TABLE `upload_contents`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `userlog`
---
-ALTER TABLE `userlog`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
---
--- AUTO_INCREMENT for table `users`
---
-ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
-
---
--- AUTO_INCREMENT for table `users_authentication`
---
-ALTER TABLE `users_authentication`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `vehicles`
---
-ALTER TABLE `vehicles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `vehicle_routes`
---
-ALTER TABLE `vehicle_routes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `video_tutorial`
---
-ALTER TABLE `video_tutorial`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `video_tutorial_class_sections`
---
-ALTER TABLE `video_tutorial_class_sections`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `visitors_book`
---
-ALTER TABLE `visitors_book`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `visitors_purpose`
---
-ALTER TABLE `visitors_purpose`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `alumni_events`
---
-ALTER TABLE `alumni_events`
-  ADD CONSTRAINT `alumni_events_ibfk_1` FOREIGN KEY (`session_id`) REFERENCES `sessions` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `alumni_events_ibfk_2` FOREIGN KEY (`class_id`) REFERENCES `classes` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `alumni_students`
---
-ALTER TABLE `alumni_students`
-  ADD CONSTRAINT `alumni_students_ibfk_1` FOREIGN KEY (`student_id`) REFERENCES `students` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `book_issues`
---
-ALTER TABLE `book_issues`
-  ADD CONSTRAINT `book_issues_ibfk_1` FOREIGN KEY (`book_id`) REFERENCES `books` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `book_issues_ibfk_2` FOREIGN KEY (`member_id`) REFERENCES `libarary_members` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `chat_connections`
---
-ALTER TABLE `chat_connections`
-  ADD CONSTRAINT `chat_connections_ibfk_1` FOREIGN KEY (`chat_user_one`) REFERENCES `chat_users` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `chat_connections_ibfk_2` FOREIGN KEY (`chat_user_two`) REFERENCES `chat_users` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `chat_messages`
---
-ALTER TABLE `chat_messages`
-  ADD CONSTRAINT `chat_messages_ibfk_1` FOREIGN KEY (`chat_user_id`) REFERENCES `chat_users` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `chat_messages_ibfk_2` FOREIGN KEY (`chat_connection_id`) REFERENCES `chat_connections` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `chat_users`
---
-ALTER TABLE `chat_users`
-  ADD CONSTRAINT `chat_users_ibfk_1` FOREIGN KEY (`staff_id`) REFERENCES `staff` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `chat_users_ibfk_2` FOREIGN KEY (`student_id`) REFERENCES `students` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `chat_users_ibfk_3` FOREIGN KEY (`create_staff_id`) REFERENCES `staff` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `chat_users_ibfk_4` FOREIGN KEY (`create_student_id`) REFERENCES `students` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `class_sections`
---
-ALTER TABLE `class_sections`
-  ADD CONSTRAINT `class_sections_ibfk_1` FOREIGN KEY (`class_id`) REFERENCES `classes` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `class_sections_ibfk_2` FOREIGN KEY (`section_id`) REFERENCES `sections` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `class_section_times`
---
-ALTER TABLE `class_section_times`
-  ADD CONSTRAINT `class_section_times_ibfk_1` FOREIGN KEY (`class_section_id`) REFERENCES `class_sections` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `class_teacher`
---
-ALTER TABLE `class_teacher`
-  ADD CONSTRAINT `class_teacher_ibfk_1` FOREIGN KEY (`class_id`) REFERENCES `classes` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `class_teacher_ibfk_2` FOREIGN KEY (`section_id`) REFERENCES `sections` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `class_teacher_ibfk_3` FOREIGN KEY (`session_id`) REFERENCES `sessions` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `class_teacher_ibfk_4` FOREIGN KEY (`staff_id`) REFERENCES `staff` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `contents`
---
-ALTER TABLE `contents`
-  ADD CONSTRAINT `contents_ibfk_1` FOREIGN KEY (`created_by`) REFERENCES `staff` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `contents_ibfk_2` FOREIGN KEY (`class_id`) REFERENCES `classes` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `contents_ibfk_3` FOREIGN KEY (`cls_sec_id`) REFERENCES `class_sections` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `content_for`
---
-ALTER TABLE `content_for`
-  ADD CONSTRAINT `content_for_ibfk_1` FOREIGN KEY (`content_id`) REFERENCES `contents` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `content_for_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `custom_field_values`
---
-ALTER TABLE `custom_field_values`
-  ADD CONSTRAINT `custom_field_values_ibfk_1` FOREIGN KEY (`custom_field_id`) REFERENCES `custom_fields` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `daily_assignment`
---
-ALTER TABLE `daily_assignment`
-  ADD CONSTRAINT `daily_assignment_ibfk_1` FOREIGN KEY (`student_session_id`) REFERENCES `student_session` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `daily_assignment_ibfk_2` FOREIGN KEY (`evaluated_by`) REFERENCES `staff` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `daily_assignment_ibfk_3` FOREIGN KEY (`subject_group_subject_id`) REFERENCES `subject_group_subjects` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `email_attachments`
---
-ALTER TABLE `email_attachments`
-  ADD CONSTRAINT `email_attachments_ibfk_1` FOREIGN KEY (`message_id`) REFERENCES `messages` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `enquiry`
---
-ALTER TABLE `enquiry`
-  ADD CONSTRAINT `enquiry_ibfk_2` FOREIGN KEY (`created_by`) REFERENCES `staff` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `enquiry_ibfk_3` FOREIGN KEY (`assigned`) REFERENCES `staff` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `enquiry_ibfk_4` FOREIGN KEY (`class_id`) REFERENCES `classes` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `events`
---
-ALTER TABLE `events`
-  ADD CONSTRAINT `events_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `exams`
---
-ALTER TABLE `exams`
-  ADD CONSTRAINT `exams_ibfk_1` FOREIGN KEY (`sesion_id`) REFERENCES `sessions` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `exam_group_class_batch_exams`
---
-ALTER TABLE `exam_group_class_batch_exams`
-  ADD CONSTRAINT `exam_group_class_batch_exams_ibfk_1` FOREIGN KEY (`exam_group_id`) REFERENCES `exam_groups` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `exam_group_class_batch_exams_ibfk_2` FOREIGN KEY (`session_id`) REFERENCES `sessions` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `exam_group_class_batch_exam_students`
---
-ALTER TABLE `exam_group_class_batch_exam_students`
-  ADD CONSTRAINT `exam_group_class_batch_exam_students_ibfk_1` FOREIGN KEY (`exam_group_class_batch_exam_id`) REFERENCES `exam_group_class_batch_exams` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `exam_group_class_batch_exam_students_ibfk_2` FOREIGN KEY (`student_id`) REFERENCES `students` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `exam_group_class_batch_exam_students_ibfk_3` FOREIGN KEY (`student_session_id`) REFERENCES `student_session` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `exam_group_class_batch_exam_subjects`
---
-ALTER TABLE `exam_group_class_batch_exam_subjects`
-  ADD CONSTRAINT `exam_group_class_batch_exam_subjects_ibfk_1` FOREIGN KEY (`exam_group_class_batch_exams_id`) REFERENCES `exam_group_class_batch_exams` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `exam_group_class_batch_exam_subjects_ibfk_2` FOREIGN KEY (`subject_id`) REFERENCES `subjects` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `exam_group_exam_connections`
---
-ALTER TABLE `exam_group_exam_connections`
-  ADD CONSTRAINT `exam_group_exam_connections_ibfk_1` FOREIGN KEY (`exam_group_id`) REFERENCES `exam_groups` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `exam_group_exam_connections_ibfk_2` FOREIGN KEY (`exam_group_class_batch_exams_id`) REFERENCES `exam_group_class_batch_exams` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `exam_group_exam_results`
---
-ALTER TABLE `exam_group_exam_results`
-  ADD CONSTRAINT `exam_group_exam_results_ibfk_1` FOREIGN KEY (`exam_group_class_batch_exam_subject_id`) REFERENCES `exam_group_class_batch_exam_subjects` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `exam_group_exam_results_ibfk_2` FOREIGN KEY (`exam_group_student_id`) REFERENCES `exam_group_students` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `exam_group_exam_results_ibfk_3` FOREIGN KEY (`exam_group_class_batch_exam_student_id`) REFERENCES `exam_group_class_batch_exam_students` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `exam_group_students`
---
-ALTER TABLE `exam_group_students`
-  ADD CONSTRAINT `exam_group_students_ibfk_1` FOREIGN KEY (`exam_group_id`) REFERENCES `exam_groups` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `exam_group_students_ibfk_2` FOREIGN KEY (`student_id`) REFERENCES `students` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `exam_group_students_ibfk_3` FOREIGN KEY (`student_session_id`) REFERENCES `student_session` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `exam_schedules`
---
-ALTER TABLE `exam_schedules`
-  ADD CONSTRAINT `exam_schedules_ibfk_1` FOREIGN KEY (`session_id`) REFERENCES `sessions` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `exam_schedules_ibfk_2` FOREIGN KEY (`exam_id`) REFERENCES `exams` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `expenses`
---
-ALTER TABLE `expenses`
-  ADD CONSTRAINT `expenses_ibfk_1` FOREIGN KEY (`exp_head_id`) REFERENCES `expense_head` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `feemasters`
---
-ALTER TABLE `feemasters`
-  ADD CONSTRAINT `feemasters_ibfk_1` FOREIGN KEY (`session_id`) REFERENCES `sessions` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `feemasters_ibfk_2` FOREIGN KEY (`feetype_id`) REFERENCES `feetype` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `feemasters_ibfk_3` FOREIGN KEY (`class_id`) REFERENCES `classes` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `fees_discounts`
---
-ALTER TABLE `fees_discounts`
-  ADD CONSTRAINT `fees_discounts_ibfk_1` FOREIGN KEY (`session_id`) REFERENCES `sessions` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `fee_groups_feetype`
---
-ALTER TABLE `fee_groups_feetype`
-  ADD CONSTRAINT `fee_groups_feetype_ibfk_1` FOREIGN KEY (`fee_session_group_id`) REFERENCES `fee_session_groups` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `fee_groups_feetype_ibfk_2` FOREIGN KEY (`fee_groups_id`) REFERENCES `fee_groups` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `fee_groups_feetype_ibfk_3` FOREIGN KEY (`feetype_id`) REFERENCES `feetype` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `fee_groups_feetype_ibfk_4` FOREIGN KEY (`session_id`) REFERENCES `sessions` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `fee_session_groups`
---
-ALTER TABLE `fee_session_groups`
-  ADD CONSTRAINT `fee_session_groups_ibfk_1` FOREIGN KEY (`fee_groups_id`) REFERENCES `fee_groups` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `fee_session_groups_ibfk_2` FOREIGN KEY (`session_id`) REFERENCES `sessions` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `follow_up`
---
-ALTER TABLE `follow_up`
-  ADD CONSTRAINT `follow_up_ibfk_1` FOREIGN KEY (`enquiry_id`) REFERENCES `enquiry` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `follow_up_ibfk_2` FOREIGN KEY (`followup_by`) REFERENCES `staff` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `front_cms_menu_items`
---
-ALTER TABLE `front_cms_menu_items`
-  ADD CONSTRAINT `front_cms_menu_items_ibfk_1` FOREIGN KEY (`menu_id`) REFERENCES `front_cms_menus` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `front_cms_page_contents`
---
-ALTER TABLE `front_cms_page_contents`
-  ADD CONSTRAINT `front_cms_page_contents_ibfk_1` FOREIGN KEY (`page_id`) REFERENCES `front_cms_pages` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `front_cms_program_photos`
---
-ALTER TABLE `front_cms_program_photos`
-  ADD CONSTRAINT `front_cms_program_photos_ibfk_1` FOREIGN KEY (`program_id`) REFERENCES `front_cms_programs` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `gateway_ins`
---
-ALTER TABLE `gateway_ins`
-  ADD CONSTRAINT `gateway_ins_ibfk_1` FOREIGN KEY (`online_admission_id`) REFERENCES `online_admissions` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `gateway_ins_response`
---
-ALTER TABLE `gateway_ins_response`
-  ADD CONSTRAINT `gateway_ins_response_ibfk_1` FOREIGN KEY (`gateway_ins_id`) REFERENCES `gateway_ins` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `homework`
---
-ALTER TABLE `homework`
-  ADD CONSTRAINT `homework_ibfk_1` FOREIGN KEY (`subject_group_subject_id`) REFERENCES `subject_group_subjects` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `homework_ibfk_2` FOREIGN KEY (`class_id`) REFERENCES `classes` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `homework_ibfk_3` FOREIGN KEY (`section_id`) REFERENCES `sections` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `homework_ibfk_4` FOREIGN KEY (`session_id`) REFERENCES `sessions` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `homework_ibfk_5` FOREIGN KEY (`staff_id`) REFERENCES `staff` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `homework_ibfk_6` FOREIGN KEY (`subject_id`) REFERENCES `subjects` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `homework_ibfk_7` FOREIGN KEY (`evaluated_by`) REFERENCES `staff` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `homework_ibfk_8` FOREIGN KEY (`created_by`) REFERENCES `staff` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `homework_evaluation`
---
-ALTER TABLE `homework_evaluation`
-  ADD CONSTRAINT `homework_evaluation_ibfk_1` FOREIGN KEY (`homework_id`) REFERENCES `homework` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `homework_evaluation_ibfk_2` FOREIGN KEY (`student_id`) REFERENCES `students` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `homework_evaluation_ibfk_3` FOREIGN KEY (`student_session_id`) REFERENCES `student_session` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `hostel_rooms`
---
-ALTER TABLE `hostel_rooms`
-  ADD CONSTRAINT `hostel_rooms_ibfk_1` FOREIGN KEY (`hostel_id`) REFERENCES `hostel` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `hostel_rooms_ibfk_2` FOREIGN KEY (`room_type_id`) REFERENCES `room_types` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `income`
---
-ALTER TABLE `income`
-  ADD CONSTRAINT `income_ibfk_1` FOREIGN KEY (`income_head_id`) REFERENCES `income_head` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `item`
---
-ALTER TABLE `item`
-  ADD CONSTRAINT `item_ibfk_1` FOREIGN KEY (`item_category_id`) REFERENCES `item_category` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `item_ibfk_2` FOREIGN KEY (`item_store_id`) REFERENCES `item_store` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `item_ibfk_3` FOREIGN KEY (`item_supplier_id`) REFERENCES `item_supplier` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `item_issue`
---
-ALTER TABLE `item_issue`
-  ADD CONSTRAINT `item_issue_ibfk_1` FOREIGN KEY (`item_id`) REFERENCES `item` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `item_issue_ibfk_2` FOREIGN KEY (`item_category_id`) REFERENCES `item_category` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `item_issue_ibfk_3` FOREIGN KEY (`issue_to`) REFERENCES `staff` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `item_issue_ibfk_4` FOREIGN KEY (`issue_by`) REFERENCES `staff` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `item_stock`
---
-ALTER TABLE `item_stock`
-  ADD CONSTRAINT `item_stock_ibfk_1` FOREIGN KEY (`item_id`) REFERENCES `item` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `item_stock_ibfk_2` FOREIGN KEY (`supplier_id`) REFERENCES `item_supplier` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `item_stock_ibfk_3` FOREIGN KEY (`store_id`) REFERENCES `item_store` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `lesson`
---
-ALTER TABLE `lesson`
-  ADD CONSTRAINT `lesson_ibfk_1` FOREIGN KEY (`session_id`) REFERENCES `sessions` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `lesson_ibfk_2` FOREIGN KEY (`subject_group_subject_id`) REFERENCES `subject_group_subjects` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `lesson_ibfk_3` FOREIGN KEY (`subject_group_class_sections_id`) REFERENCES `subject_group_class_sections` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `lesson_plan_forum`
---
-ALTER TABLE `lesson_plan_forum`
-  ADD CONSTRAINT `lesson_plan_forum_ibfk_1` FOREIGN KEY (`subject_syllabus_id`) REFERENCES `subject_syllabus` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `lesson_plan_forum_ibfk_2` FOREIGN KEY (`student_id`) REFERENCES `students` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `lesson_plan_forum_ibfk_3` FOREIGN KEY (`staff_id`) REFERENCES `staff` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `notification_roles`
---
-ALTER TABLE `notification_roles`
-  ADD CONSTRAINT `notification_roles_ibfk_1` FOREIGN KEY (`send_notification_id`) REFERENCES `send_notification` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `notification_roles_ibfk_2` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `offline_fees_payments`
---
-ALTER TABLE `offline_fees_payments`
-  ADD CONSTRAINT `offline_fees_payments_ibfk_1` FOREIGN KEY (`student_fees_master_id`) REFERENCES `student_fees_master` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `offline_fees_payments_ibfk_2` FOREIGN KEY (`fee_groups_feetype_id`) REFERENCES `fee_groups_feetype` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `offline_fees_payments_ibfk_3` FOREIGN KEY (`student_transport_fee_id`) REFERENCES `student_transport_fees` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `offline_fees_payments_ibfk_4` FOREIGN KEY (`approved_by`) REFERENCES `staff` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `offline_fees_payments_ibfk_5` FOREIGN KEY (`student_session_id`) REFERENCES `student_session` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `onlineexam`
---
-ALTER TABLE `onlineexam`
-  ADD CONSTRAINT `onlineexam_ibfk_1` FOREIGN KEY (`session_id`) REFERENCES `sessions` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `onlineexam_attempts`
---
-ALTER TABLE `onlineexam_attempts`
-  ADD CONSTRAINT `onlineexam_attempts_ibfk_1` FOREIGN KEY (`onlineexam_student_id`) REFERENCES `onlineexam_students` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `onlineexam_questions`
---
-ALTER TABLE `onlineexam_questions`
-  ADD CONSTRAINT `onlineexam_questions_ibfk_1` FOREIGN KEY (`onlineexam_id`) REFERENCES `onlineexam` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `onlineexam_questions_ibfk_2` FOREIGN KEY (`question_id`) REFERENCES `questions` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `onlineexam_questions_ibfk_3` FOREIGN KEY (`session_id`) REFERENCES `sessions` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `onlineexam_students`
---
-ALTER TABLE `onlineexam_students`
-  ADD CONSTRAINT `onlineexam_students_ibfk_1` FOREIGN KEY (`onlineexam_id`) REFERENCES `onlineexam` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `onlineexam_students_ibfk_2` FOREIGN KEY (`student_session_id`) REFERENCES `student_session` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `onlineexam_student_results`
---
-ALTER TABLE `onlineexam_student_results`
-  ADD CONSTRAINT `onlineexam_student_results_ibfk_1` FOREIGN KEY (`onlineexam_student_id`) REFERENCES `onlineexam_students` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `onlineexam_student_results_ibfk_2` FOREIGN KEY (`onlineexam_question_id`) REFERENCES `onlineexam_questions` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `online_admissions`
---
-ALTER TABLE `online_admissions`
-  ADD CONSTRAINT `online_admissions_ibfk_1` FOREIGN KEY (`class_section_id`) REFERENCES `class_sections` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `online_admissions_ibfk_2` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `online_admissions_ibfk_3` FOREIGN KEY (`hostel_room_id`) REFERENCES `hostel_rooms` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `online_admissions_ibfk_4` FOREIGN KEY (`school_house_id`) REFERENCES `school_houses` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `online_admission_custom_field_value`
---
-ALTER TABLE `online_admission_custom_field_value`
-  ADD CONSTRAINT `online_admission_custom_field_value_ibfk_1` FOREIGN KEY (`custom_field_id`) REFERENCES `custom_fields` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `online_admission_payment`
---
-ALTER TABLE `online_admission_payment`
-  ADD CONSTRAINT `online_admission_payment_ibfk_1` FOREIGN KEY (`online_admission_id`) REFERENCES `online_admissions` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `payslip_allowance`
---
-ALTER TABLE `payslip_allowance`
-  ADD CONSTRAINT `payslip_allowance_ibfk_1` FOREIGN KEY (`staff_id`) REFERENCES `staff` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `payslip_allowance_ibfk_2` FOREIGN KEY (`payslip_id`) REFERENCES `staff_payslip` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `permission_category`
---
-ALTER TABLE `permission_category`
-  ADD CONSTRAINT `permission_category_ibfk_1` FOREIGN KEY (`perm_group_id`) REFERENCES `permission_group` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `permission_student`
---
-ALTER TABLE `permission_student`
-  ADD CONSTRAINT `permission_student_ibfk_1` FOREIGN KEY (`group_id`) REFERENCES `permission_group` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `questions`
---
-ALTER TABLE `questions`
-  ADD CONSTRAINT `questions_ibfk_1` FOREIGN KEY (`subject_id`) REFERENCES `subjects` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `questions_ibfk_2` FOREIGN KEY (`staff_id`) REFERENCES `staff` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `questions_ibfk_3` FOREIGN KEY (`subject_id`) REFERENCES `subjects` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `questions_ibfk_4` FOREIGN KEY (`class_id`) REFERENCES `classes` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `questions_ibfk_5` FOREIGN KEY (`section_id`) REFERENCES `sections` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `questions_ibfk_6` FOREIGN KEY (`class_section_id`) REFERENCES `class_sections` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `read_notification`
---
-ALTER TABLE `read_notification`
-  ADD CONSTRAINT `read_notification_ibfk_1` FOREIGN KEY (`notification_id`) REFERENCES `send_notification` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `read_notification_ibfk_2` FOREIGN KEY (`staff_id`) REFERENCES `staff` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `read_notification_ibfk_3` FOREIGN KEY (`student_id`) REFERENCES `students` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `roles_permissions`
---
-ALTER TABLE `roles_permissions`
-  ADD CONSTRAINT `roles_permissions_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `roles_permissions_ibfk_2` FOREIGN KEY (`perm_cat_id`) REFERENCES `permission_category` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `route_pickup_point`
---
-ALTER TABLE `route_pickup_point`
-  ADD CONSTRAINT `route_pickup_point_ibfk_1` FOREIGN KEY (`transport_route_id`) REFERENCES `transport_route` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `route_pickup_point_ibfk_2` FOREIGN KEY (`pickup_point_id`) REFERENCES `pickup_point` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `send_notification`
---
-ALTER TABLE `send_notification`
-  ADD CONSTRAINT `send_notification_ibfk_1` FOREIGN KEY (`created_id`) REFERENCES `staff` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `share_contents`
---
-ALTER TABLE `share_contents`
-  ADD CONSTRAINT `share_contents_ibfk_1` FOREIGN KEY (`created_by`) REFERENCES `staff` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `share_content_for`
---
-ALTER TABLE `share_content_for`
-  ADD CONSTRAINT `share_content_for_ibfk_1` FOREIGN KEY (`share_content_id`) REFERENCES `share_contents` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `share_content_for_ibfk_2` FOREIGN KEY (`student_id`) REFERENCES `students` (`id`),
-  ADD CONSTRAINT `share_content_for_ibfk_3` FOREIGN KEY (`staff_id`) REFERENCES `staff` (`id`),
-  ADD CONSTRAINT `share_content_for_ibfk_4` FOREIGN KEY (`class_section_id`) REFERENCES `class_sections` (`id`),
-  ADD CONSTRAINT `share_content_for_ibfk_5` FOREIGN KEY (`user_parent_id`) REFERENCES `users` (`id`);
-
---
--- Constraints for table `share_upload_contents`
---
-ALTER TABLE `share_upload_contents`
-  ADD CONSTRAINT `share_upload_contents_ibfk_1` FOREIGN KEY (`upload_content_id`) REFERENCES `upload_contents` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `share_upload_contents_ibfk_2` FOREIGN KEY (`share_content_id`) REFERENCES `share_contents` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `sidebar_menus`
---
-ALTER TABLE `sidebar_menus`
-  ADD CONSTRAINT `sidebar_menus_ibfk_1` FOREIGN KEY (`permission_group_id`) REFERENCES `permission_group` (`id`) ON DELETE SET NULL;
-
---
--- Constraints for table `sidebar_sub_menus`
---
-ALTER TABLE `sidebar_sub_menus`
-  ADD CONSTRAINT `sidebar_sub_menus_ibfk_1` FOREIGN KEY (`sidebar_menu_id`) REFERENCES `sidebar_menus` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `sidebar_sub_menus_ibfk_2` FOREIGN KEY (`permission_group_id`) REFERENCES `permission_group` (`id`) ON DELETE SET NULL;
-
---
--- Constraints for table `staff`
---
-ALTER TABLE `staff`
-  ADD CONSTRAINT `staff_ibfk_1` FOREIGN KEY (`designation`) REFERENCES `staff_designation` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `staff_ibfk_2` FOREIGN KEY (`department`) REFERENCES `department` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `staff_attendance`
---
-ALTER TABLE `staff_attendance`
-  ADD CONSTRAINT `FK_staff_attendance_staff` FOREIGN KEY (`staff_id`) REFERENCES `staff` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `FK_staff_attendance_staff_attendance_type` FOREIGN KEY (`staff_attendance_type_id`) REFERENCES `staff_attendance_type` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `staff_leave_details`
---
-ALTER TABLE `staff_leave_details`
-  ADD CONSTRAINT `FK_staff_leave_details_leave_types` FOREIGN KEY (`leave_type_id`) REFERENCES `leave_types` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `FK_staff_leave_details_staff` FOREIGN KEY (`staff_id`) REFERENCES `staff` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `staff_leave_request`
---
-ALTER TABLE `staff_leave_request`
-  ADD CONSTRAINT `FK_staff_leave_request_staff` FOREIGN KEY (`staff_id`) REFERENCES `staff` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `staff_leave_request_ibfk_1` FOREIGN KEY (`applied_by`) REFERENCES `staff` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `staff_leave_request_ibfk_2` FOREIGN KEY (`leave_type_id`) REFERENCES `leave_types` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `staff_payslip`
---
-ALTER TABLE `staff_payslip`
-  ADD CONSTRAINT `FK_staff_payslip_staff` FOREIGN KEY (`staff_id`) REFERENCES `staff` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `staff_rating`
---
-ALTER TABLE `staff_rating`
-  ADD CONSTRAINT `FK_staff_rating_staff` FOREIGN KEY (`staff_id`) REFERENCES `staff` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `staff_roles`
---
-ALTER TABLE `staff_roles`
-  ADD CONSTRAINT `FK_staff_roles_roles` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `FK_staff_roles_staff` FOREIGN KEY (`staff_id`) REFERENCES `staff` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `staff_timeline`
---
-ALTER TABLE `staff_timeline`
-  ADD CONSTRAINT `FK_staff_timeline_staff` FOREIGN KEY (`staff_id`) REFERENCES `staff` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `states`
---
-ALTER TABLE `states`
-  ADD CONSTRAINT `country_region_final` FOREIGN KEY (`country_id`) REFERENCES `countries` (`id`);
-
---
--- Constraints for table `student_applyleave`
---
-ALTER TABLE `student_applyleave`
-  ADD CONSTRAINT `student_applyleave_ibfk_1` FOREIGN KEY (`student_session_id`) REFERENCES `student_session` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `student_applyleave_ibfk_2` FOREIGN KEY (`approve_by`) REFERENCES `staff` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `student_attendences`
---
-ALTER TABLE `student_attendences`
-  ADD CONSTRAINT `student_attendences_ibfk_1` FOREIGN KEY (`attendence_type_id`) REFERENCES `attendence_type` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `student_attendences_ibfk_2` FOREIGN KEY (`student_session_id`) REFERENCES `student_session` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `student_fees`
---
-ALTER TABLE `student_fees`
-  ADD CONSTRAINT `student_fees_ibfk_1` FOREIGN KEY (`feemaster_id`) REFERENCES `feemasters` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `student_fees_ibfk_2` FOREIGN KEY (`student_session_id`) REFERENCES `student_session` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `student_fees_deposite`
---
-ALTER TABLE `student_fees_deposite`
-  ADD CONSTRAINT `student_fees_deposite_ibfk_1` FOREIGN KEY (`student_transport_fee_id`) REFERENCES `student_transport_fees` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `student_fees_deposite_ibfk_2` FOREIGN KEY (`student_fees_master_id`) REFERENCES `student_fees_master` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `student_fees_deposite_ibfk_3` FOREIGN KEY (`fee_groups_feetype_id`) REFERENCES `fee_groups_feetype` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `student_fees_discounts`
---
-ALTER TABLE `student_fees_discounts`
-  ADD CONSTRAINT `student_fees_discounts_ibfk_1` FOREIGN KEY (`fees_discount_id`) REFERENCES `fees_discounts` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `student_fees_discounts_ibfk_2` FOREIGN KEY (`student_session_id`) REFERENCES `student_session` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `student_fees_master`
---
-ALTER TABLE `student_fees_master`
-  ADD CONSTRAINT `student_fees_master_ibfk_1` FOREIGN KEY (`fee_session_group_id`) REFERENCES `fee_session_groups` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `student_fees_master_ibfk_2` FOREIGN KEY (`student_session_id`) REFERENCES `student_session` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `student_fees_processing`
---
-ALTER TABLE `student_fees_processing`
-  ADD CONSTRAINT `student_fees_processing_ibfk_1` FOREIGN KEY (`student_fees_master_id`) REFERENCES `student_fees_master` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `student_fees_processing_ibfk_2` FOREIGN KEY (`student_transport_fee_id`) REFERENCES `student_transport_fees` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `student_fees_processing_ibfk_3` FOREIGN KEY (`fee_groups_feetype_id`) REFERENCES `fee_groups_feetype` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `student_fees_processing_ibfk_4` FOREIGN KEY (`gateway_ins_id`) REFERENCES `gateway_ins` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `student_session`
---
-ALTER TABLE `student_session`
-  ADD CONSTRAINT `student_session_ibfk_1` FOREIGN KEY (`session_id`) REFERENCES `sessions` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `student_session_ibfk_2` FOREIGN KEY (`student_id`) REFERENCES `students` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `student_session_ibfk_3` FOREIGN KEY (`class_id`) REFERENCES `classes` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `student_session_ibfk_4` FOREIGN KEY (`section_id`) REFERENCES `sections` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `student_session_ibfk_5` FOREIGN KEY (`vehroute_id`) REFERENCES `vehicle_routes` (`id`) ON DELETE SET NULL,
-  ADD CONSTRAINT `student_session_ibfk_6` FOREIGN KEY (`route_pickup_point_id`) REFERENCES `route_pickup_point` (`id`) ON DELETE SET NULL,
-  ADD CONSTRAINT `student_session_ibfk_7` FOREIGN KEY (`hostel_room_id`) REFERENCES `hostel_rooms` (`id`) ON DELETE SET NULL;
-
---
--- Constraints for table `student_subject_attendances`
---
-ALTER TABLE `student_subject_attendances`
-  ADD CONSTRAINT `student_subject_attendances_ibfk_1` FOREIGN KEY (`attendence_type_id`) REFERENCES `attendence_type` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `student_subject_attendances_ibfk_2` FOREIGN KEY (`student_session_id`) REFERENCES `student_session` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `student_subject_attendances_ibfk_3` FOREIGN KEY (`subject_timetable_id`) REFERENCES `subject_timetable` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `student_timeline`
---
-ALTER TABLE `student_timeline`
-  ADD CONSTRAINT `student_timeline_ibfk_1` FOREIGN KEY (`student_id`) REFERENCES `students` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `student_transport_fees`
---
-ALTER TABLE `student_transport_fees`
-  ADD CONSTRAINT `student_transport_fees_ibfk_1` FOREIGN KEY (`student_session_id`) REFERENCES `student_session` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `student_transport_fees_ibfk_2` FOREIGN KEY (`route_pickup_point_id`) REFERENCES `route_pickup_point` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `student_transport_fees_ibfk_3` FOREIGN KEY (`transport_feemaster_id`) REFERENCES `transport_feemaster` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `subject_groups`
---
-ALTER TABLE `subject_groups`
-  ADD CONSTRAINT `subject_groups_ibfk_1` FOREIGN KEY (`session_id`) REFERENCES `sessions` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `subject_group_class_sections`
---
-ALTER TABLE `subject_group_class_sections`
-  ADD CONSTRAINT `subject_group_class_sections_ibfk_1` FOREIGN KEY (`class_section_id`) REFERENCES `class_sections` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `subject_group_class_sections_ibfk_2` FOREIGN KEY (`subject_group_id`) REFERENCES `subject_groups` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `subject_group_class_sections_ibfk_3` FOREIGN KEY (`session_id`) REFERENCES `sessions` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `subject_group_subjects`
---
-ALTER TABLE `subject_group_subjects`
-  ADD CONSTRAINT `subject_group_subjects_ibfk_1` FOREIGN KEY (`subject_group_id`) REFERENCES `subject_groups` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `subject_group_subjects_ibfk_2` FOREIGN KEY (`session_id`) REFERENCES `sessions` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `subject_group_subjects_ibfk_3` FOREIGN KEY (`subject_id`) REFERENCES `subjects` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `subject_syllabus`
---
-ALTER TABLE `subject_syllabus`
-  ADD CONSTRAINT `subject_syllabus_ibfk_1` FOREIGN KEY (`topic_id`) REFERENCES `topic` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `subject_syllabus_ibfk_2` FOREIGN KEY (`session_id`) REFERENCES `sessions` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `subject_syllabus_ibfk_3` FOREIGN KEY (`created_by`) REFERENCES `staff` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `subject_syllabus_ibfk_4` FOREIGN KEY (`created_for`) REFERENCES `staff` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `subject_timetable`
---
-ALTER TABLE `subject_timetable`
-  ADD CONSTRAINT `subject_timetable_ibfk_1` FOREIGN KEY (`class_id`) REFERENCES `classes` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `subject_timetable_ibfk_2` FOREIGN KEY (`section_id`) REFERENCES `sections` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `subject_timetable_ibfk_3` FOREIGN KEY (`subject_group_id`) REFERENCES `subject_groups` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `subject_timetable_ibfk_4` FOREIGN KEY (`subject_group_subject_id`) REFERENCES `subject_group_subjects` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `subject_timetable_ibfk_5` FOREIGN KEY (`staff_id`) REFERENCES `staff` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `subject_timetable_ibfk_6` FOREIGN KEY (`session_id`) REFERENCES `sessions` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `submit_assignment`
---
-ALTER TABLE `submit_assignment`
-  ADD CONSTRAINT `submit_assignment_ibfk_1` FOREIGN KEY (`student_id`) REFERENCES `students` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `submit_assignment_ibfk_2` FOREIGN KEY (`homework_id`) REFERENCES `homework` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `topic`
---
-ALTER TABLE `topic`
-  ADD CONSTRAINT `topic_ibfk_1` FOREIGN KEY (`session_id`) REFERENCES `sessions` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `topic_ibfk_2` FOREIGN KEY (`lesson_id`) REFERENCES `lesson` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `transport_feemaster`
---
-ALTER TABLE `transport_feemaster`
-  ADD CONSTRAINT `transport_feemaster_ibfk_1` FOREIGN KEY (`session_id`) REFERENCES `sessions` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `upload_contents`
---
-ALTER TABLE `upload_contents`
-  ADD CONSTRAINT `upload_contents_ibfk_1` FOREIGN KEY (`upload_by`) REFERENCES `staff` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `upload_contents_ibfk_2` FOREIGN KEY (`content_type_id`) REFERENCES `content_types` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `userlog`
---
-ALTER TABLE `userlog`
-  ADD CONSTRAINT `userlog_ibfk_1` FOREIGN KEY (`class_section_id`) REFERENCES `class_sections` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `vehicle_routes`
---
-ALTER TABLE `vehicle_routes`
-  ADD CONSTRAINT `vehicle_routes_ibfk_1` FOREIGN KEY (`route_id`) REFERENCES `transport_route` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `vehicle_routes_ibfk_2` FOREIGN KEY (`vehicle_id`) REFERENCES `vehicles` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `video_tutorial`
---
-ALTER TABLE `video_tutorial`
-  ADD CONSTRAINT `video_tutorial_ibfk_1` FOREIGN KEY (`created_by`) REFERENCES `staff` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `video_tutorial_class_sections`
---
-ALTER TABLE `video_tutorial_class_sections`
-  ADD CONSTRAINT `video_tutorial_class_sections_ibfk_1` FOREIGN KEY (`class_section_id`) REFERENCES `class_sections` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `video_tutorial_class_sections_ibfk_2` FOREIGN KEY (`video_tutorial_id`) REFERENCES `video_tutorial` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `visitors_book`
---
-ALTER TABLE `visitors_book`
-  ADD CONSTRAINT `visitors_book_ibfk_1` FOREIGN KEY (`staff_id`) REFERENCES `staff` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `visitors_book_ibfk_2` FOREIGN KEY (`student_session_id`) REFERENCES `student_session` (`id`) ON DELETE CASCADE;
+ALTER TABLE `teacher_subjects`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

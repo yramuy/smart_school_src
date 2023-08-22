@@ -2344,3 +2344,4 @@ $lang['your_transaction_has_failed_due_to_some_technical_error'] = "Your Transac
 $lang['youtube_link'] = "YouTube Link";	
 $lang['youtube_url'] = "Youtube URL";
 $lang['student_performance'] = "Student Performance";
+$lang['assign_subject_teacher'] = "Assign Subject Teacher";
