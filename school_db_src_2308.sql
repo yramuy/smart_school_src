@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 22, 2023 at 02:23 PM
+-- Generation Time: Aug 23, 2023 at 03:12 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 7.4.22
 
@@ -299,6 +299,7 @@ CREATE TABLE `class_sections` (
 --
 
 INSERT INTO `class_sections` (`id`, `class_id`, `section_id`, `is_active`, `created_at`, `updated_at`) VALUES
+(1, 4, 2, 'no', '2023-08-23 09:36:55', NULL),
 (2, 2, 2, 'no', '2023-08-16 13:30:33', NULL),
 (4, 4, 1, 'no', '2023-08-16 13:31:25', NULL);
 
@@ -2350,7 +2351,11 @@ INSERT INTO `logs` (`id`, `message`, `record_id`, `user_id`, `action`, `ip_addre
 (0, 'New Record inserted On teacher subjects id 3', '3', 1, 'Insert', '::1', 'Windows 10', 'Chrome 116.0.0.0', '2023-08-22 06:21:07', NULL),
 (0, 'New Record inserted On teacher subjects id 4', '4', 1, 'Insert', '::1', 'Windows 10', 'Chrome 116.0.0.0', '2023-08-22 06:21:07', NULL),
 (0, 'New Record inserted On teacher subjects id 5', '5', 1, 'Insert', '::1', 'Windows 10', 'Chrome 116.0.0.0', '2023-08-22 06:21:07', NULL),
-(0, 'New Record inserted On teacher subjects id 6', '6', 1, 'Insert', '::1', 'Windows 10', 'Chrome 116.0.0.0', '2023-08-22 06:21:08', NULL);
+(0, 'New Record inserted On teacher subjects id 6', '6', 1, 'Insert', '::1', 'Windows 10', 'Chrome 116.0.0.0', '2023-08-22 06:21:08', NULL),
+(0, 'Record updated On classes id 4', '4', 1, 'Update', '::1', 'Windows 10', 'Chrome 116.0.0.0', '2023-08-23 04:06:54', NULL),
+(0, 'New Record inserted On subject groups id 3', '3', 1, 'Insert', '::1', 'Windows 10', 'Chrome 116.0.0.0', '2023-08-23 04:12:04', NULL),
+(0, 'New Record inserted On teacher subjects id 7', '7', 1, 'Insert', '::1', 'Windows 10', 'Chrome 116.0.0.0', '2023-08-23 04:15:52', NULL),
+(0, 'New Record inserted On teacher subjects id 8', '8', 1, 'Insert', '::1', 'Windows 10', 'Chrome 116.0.0.0', '2023-08-23 04:15:56', NULL);
 
 -- --------------------------------------------------------
 
@@ -10209,7 +10214,8 @@ CREATE TABLE `subject_groups` (
 
 INSERT INTO `subject_groups` (`id`, `name`, `description`, `session_id`, `created_at`) VALUES
 (1, 'Group 1', '', 18, '2023-08-21 09:28:07'),
-(2, 'Group 2', '', 18, '2023-08-21 09:28:28');
+(2, 'Group 2', '', 18, '2023-08-21 09:28:28'),
+(3, 'Group 3', '', 18, '2023-08-23 09:42:04');
 
 -- --------------------------------------------------------
 
@@ -10234,7 +10240,8 @@ CREATE TABLE `subject_group_class_sections` (
 
 INSERT INTO `subject_group_class_sections` (`id`, `subject_group_id`, `class_section_id`, `session_id`, `description`, `is_active`, `created_at`, `updated_at`) VALUES
 (1, 2, 4, 18, NULL, 0, '2023-08-21 09:31:23', NULL),
-(2, 1, 2, 18, NULL, 0, '2023-08-21 09:31:39', NULL);
+(2, 1, 2, 18, NULL, 0, '2023-08-21 09:31:39', NULL),
+(3, 3, 1, 18, NULL, 0, '2023-08-23 09:42:04', NULL);
 
 -- --------------------------------------------------------
 
@@ -10266,7 +10273,53 @@ INSERT INTO `subject_group_subjects` (`id`, `subject_group_id`, `session_id`, `s
 (9, 1, 18, 2, '2023-08-22 10:59:28'),
 (10, 1, 18, 4, '2023-08-22 10:59:28'),
 (11, 1, 18, 5, '2023-08-22 10:59:28'),
-(12, 1, 18, 6, '2023-08-22 10:59:28');
+(12, 1, 18, 6, '2023-08-22 10:59:28'),
+(13, 3, 18, 1, '2023-08-23 09:42:04'),
+(14, 3, 18, 2, '2023-08-23 09:42:04'),
+(15, 3, 18, 3, '2023-08-23 09:42:04'),
+(16, 3, 18, 4, '2023-08-23 09:42:04'),
+(17, 3, 18, 5, '2023-08-23 09:42:04'),
+(18, 3, 18, 6, '2023-08-23 09:42:04');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `subject_skills`
+--
+
+CREATE TABLE `subject_skills` (
+  `id` int(11) NOT NULL,
+  `subject_id` int(11) DEFAULT NULL,
+  `skill_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `subject_skills`
+--
+
+INSERT INTO `subject_skills` (`id`, `subject_id`, `skill_id`) VALUES
+(1, 1, 1),
+(2, 1, 2),
+(3, 1, 3),
+(4, 2, 1),
+(5, 2, 2),
+(6, 2, 3),
+(7, 3, 1),
+(8, 3, 7),
+(9, 3, 8),
+(10, 4, 1),
+(11, 4, 2),
+(12, 4, 3),
+(13, 5, 1),
+(14, 5, 2),
+(15, 5, 4),
+(16, 5, 6),
+(17, 5, 7),
+(18, 5, 8),
+(19, 6, 1),
+(20, 6, 2),
+(21, 6, 6),
+(22, 6, 8);
 
 -- --------------------------------------------------------
 
@@ -10363,7 +10416,9 @@ INSERT INTO `teacher_subjects` (`id`, `session_id`, `class_section_id`, `subject
 (3, 18, 4, 3, 5, NULL, 'no', '2023-08-22 11:51:07', NULL),
 (4, 18, 4, 4, 6, NULL, 'no', '2023-08-22 11:51:07', NULL),
 (5, 18, 4, 5, 7, NULL, 'no', '2023-08-22 11:51:07', NULL),
-(6, 18, 4, 6, 8, NULL, 'no', '2023-08-22 11:51:08', NULL);
+(6, 18, 4, 6, 8, NULL, 'no', '2023-08-22 11:51:08', NULL),
+(7, 18, 1, 5, 5, NULL, 'no', '2023-08-23 09:45:52', NULL),
+(8, 18, 1, 1, 2, NULL, 'no', '2023-08-23 09:45:52', NULL);
 
 -- --------------------------------------------------------
 
@@ -10570,7 +10625,16 @@ INSERT INTO `userlog` (`id`, `user`, `role`, `class_section_id`, `ipaddress`, `u
 (0, 'teacher1@gmail.com', 'Teacher', NULL, '::1', 'Chrome 116.0.0.0, Windows 10', '2023-08-21 04:46:57'),
 (0, 'ramuy@gmail.com', 'Super Admin', NULL, '::1', 'Chrome 116.0.0.0, Windows 10', '2023-08-22 04:47:57'),
 (0, 'subteacher1@gmail.com', 'Teacher', NULL, '::1', 'Chrome 116.0.0.0, Windows 10', '2023-08-22 06:22:18'),
-(0, 'teacher1@gmail.com', 'Teacher', NULL, '::1', 'Chrome 116.0.0.0, Windows 10', '2023-08-22 06:48:42');
+(0, 'teacher1@gmail.com', 'Teacher', NULL, '::1', 'Chrome 116.0.0.0, Windows 10', '2023-08-22 06:48:42'),
+(0, 'teacher1@gmail.com', 'Teacher', NULL, '::1', 'Chrome 116.0.0.0, Windows 10', '2023-08-23 01:05:09'),
+(0, 'ramuy@gmail.com', 'Super Admin', NULL, '::1', 'Chrome 116.0.0.0, Windows 10', '2023-08-23 01:16:05'),
+(0, 'teacher1@gmail.com', 'Teacher', NULL, '::1', 'Chrome 116.0.0.0, Windows 10', '2023-08-23 03:35:12'),
+(0, 'subteacher1@gmail.com', 'Teacher', NULL, '::1', 'Chrome 116.0.0.0, Windows 10', '2023-08-23 03:37:28'),
+(0, 'ramuy@gmail.com', 'Super Admin', NULL, '::1', 'Chrome 116.0.0.0, Windows 10', '2023-08-23 04:05:24'),
+(0, 'subteacher1@gmail.com', 'Teacher', NULL, '::1', 'Chrome 116.0.0.0, Windows 10', '2023-08-23 04:18:34'),
+(0, 'subteacher1@gmail.com', 'Teacher', NULL, '::1', 'Chrome 116.0.0.0, Windows 10', '2023-08-23 05:42:22'),
+(0, 'teacher1@gmail.com', 'Teacher', NULL, '::1', 'Chrome 116.0.0.0, Windows 10', '2023-08-23 05:43:11'),
+(0, 'subteacher1@gmail.com', 'Teacher', NULL, '::1', 'Chrome 116.0.0.0, Windows 10', '2023-08-23 06:08:29');
 
 -- --------------------------------------------------------
 
@@ -11055,6 +11119,12 @@ ALTER TABLE `subject_group_subjects`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `subject_skills`
+--
+ALTER TABLE `subject_skills`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `teacher_subjects`
 --
 ALTER TABLE `teacher_subjects`
@@ -11067,6 +11137,12 @@ ALTER TABLE `teacher_subjects`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `class_sections`
+--
+ALTER TABLE `class_sections`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `permission_category`
@@ -11126,25 +11202,31 @@ ALTER TABLE `subjects`
 -- AUTO_INCREMENT for table `subject_groups`
 --
 ALTER TABLE `subject_groups`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `subject_group_class_sections`
 --
 ALTER TABLE `subject_group_class_sections`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `subject_group_subjects`
 --
 ALTER TABLE `subject_group_subjects`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- AUTO_INCREMENT for table `subject_skills`
+--
+ALTER TABLE `subject_skills`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `teacher_subjects`
 --
 ALTER TABLE `teacher_subjects`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -2345,3 +2345,4 @@ $lang['youtube_link'] = "YouTube Link";
 $lang['youtube_url'] = "Youtube URL";
 $lang['student_performance'] = "Student Performance";
 $lang['assign_subject_teacher'] = "Assign Subject Teacher";
+$lang['subject'] = "Subject";

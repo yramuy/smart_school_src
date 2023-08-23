@@ -72,30 +72,52 @@ class Class_model extends MY_Model
         $id = $userdata["id"];
         $query = $this->db->query('SELECT c.* FROM class_teacher ct LEFT JOIN classes c ON ct.class_id = c.id WHERE ct.staff_id = "'.$id.'"');
         $result = $query->result_array();
-        // print_r($userdata);die();
-        // $role_id  = $userdata["role_id"];
-        // $carray   = array();
-        // if (isset($role_id) && ($userdata["role_id"] == 2) && ($userdata["class_teacher"] == "no")) {
-        //     if ($userdata["class_teacher"] == 'no') {
-             
-        //         $classlist = $this->teacher_model->get_teacherrestricted_mode($userdata["id"]);
-        //     }
-        // } else {
-         
-        //     $this->db->select()->from('classes');
-        //     if ($id != null) {
-        //         $this->db->where('id', $id);
-        //     } else {
-        //         $this->db->order_by('id');
-        //     }
-        //     $query = $this->db->get();
-        //     if ($id != null) {
-        //         $classlist = $query->row_array();
-        //     } else {
-        //         $classlist = $query->result_array();
-        //     }
-        // }
+        return $result;
+    }
 
+    public function getSubjectClassListByLoginId()
+    {
+        $userdata = $this->customlib->getUserData();
+        $id = $userdata["id"];
+        $query = $this->db->query('SELECT ts.class_section_id,ts.subject_id,ts.teacher_id,c.id,
+                c.class FROM teacher_subjects ts 
+                LEFT JOIN class_sections cs ON cs.id = ts.class_section_id
+                LEFT JOIN classes c ON c.id = cs.class_id
+                WHERE ts.teacher_id = "'.$id.'" GROUP BY c.id');
+        $result = $query->result_array();
+        return $result;
+    }
+
+    public function getSubjectsByClassSection($class_id, $section_id)
+    {
+        $userdata = $this->customlib->getUserData();
+        $id = $userdata["id"];
+        $query = $this->db->query('SELECT cs.class_id,cs.section_id,ts.class_section_id,
+                ts.subject_id,s.name,ts.teacher_id FROM class_sections cs 
+                LEFT JOIN teacher_subjects ts ON ts.class_section_id = cs.id
+                LEFT JOIN subjects s ON s.id = ts.subject_id
+                WHERE cs.class_id = "'.$class_id.'" AND cs.section_id = "'.$section_id.'" AND ts.teacher_id = "'.$id.'"');
+        $result = $query->result_array();
+        return $result;
+    }
+
+    public function getClassTeacherSubjectsByClassSection($class_id, $section_id)
+    {
+        $userdata = $this->customlib->getUserData();
+        $id = $userdata["id"];
+        $query = $this->db->query('SELECT cs.class_id,cs.section_id,ts.class_section_id,
+                ts.subject_id,s.name,ts.teacher_id FROM class_sections cs 
+                LEFT JOIN teacher_subjects ts ON ts.class_section_id = cs.id
+                LEFT JOIN subjects s ON s.id = ts.subject_id
+                WHERE cs.class_id = "'.$class_id.'" AND cs.section_id = "'.$section_id.'"');
+        $result = $query->result_array();
+        return $result;
+    }
+
+    public function getStudentSkills($id)
+    {
+        $query = $this->db->query('SELECT ss.*,sts.name FROM subject_skills ss LEFT JOIN student_skills sts ON ss.skill_id = sts.id WHERE ss.subject_id = "'.$id.'";');
+        $result = $query->result_array();
         return $result;
     }
 

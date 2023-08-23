@@ -1570,21 +1570,14 @@ class Student extends Admin_Controller
         $data['sch_setting']     = $this->sch_setting_detail;
         $data['fields']          = $this->customfield_model->get_custom_fields('students', 1);
         $class                   = $this->class_model->getClassListByLoginId();
-        $data['classlist']       = $class;
-        $class_id       = $this->input->post('class_id');
-        $section_id       = $this->input->post('section_id');
-        $searchbtn       = $this->input->post('searchbtn');
-
-        if($searchbtn == "searchbtn"){
-            $students         = $this->student_model->searchByClassSection($class_id, $section_id);
-            $data['students'] = $students;
-
-            
+        if(sizeof($class) > 0){
+            $data['classlist']   = $class;
+            // $class               = $this->class_model->getClassSubjectByLoginId();
         }else{
-            $data['students'] = array();
+            $SubjectClass        = $this->class_model->getSubjectClassListByLoginId();
+            $data['classlist']   = $SubjectClass;
         }
         
-        // $students = $this->student_model->getStudentsByClassTeacher();
         
         $studentSkills = $this->student_model->getStudentSkills();
         $data['studentskills'] = $studentSkills;
@@ -1602,12 +1595,38 @@ class Student extends Admin_Controller
         $data = array();
         $class_id = $this->input->post('class_id');
         $section_id = $this->input->post('sectionId');
-        $students         = $this->student_model->searchByClassSection($class_id, $section_id);
-
-        // $params      = array('class_id' => $class_id, 'section_id' => $section_id);
-        // $array       = array('status' => 1, 'error' => '', 'params' => $params);
+        $students   = $this->student_model->searchByClassSection($class_id, $section_id);
 
         echo json_encode($students);
+    }
+
+    public function getSubjectsByClassSection()
+    {
+
+        $data = array();
+        $class_id = $this->input->post('classId');
+        $section_id = $this->input->post('sectionId');
+        $class      = $this->class_model->getClassListByLoginId();
+
+        if(sizeof($class) > 0){
+            $subjects   = $this->class_model->getClassTeacherSubjectsByClassSection($class_id, $section_id);
+        }else{
+            $subjects   = $this->class_model->getSubjectsByClassSection($class_id, $section_id);
+        }
+        
+
+        echo json_encode($subjects);
+    }
+
+    public function getStudentSkills()
+    {
+
+        $data = array();
+        $subjectId = $this->input->post('subjectId');
+        
+        $subject_skills   = $this->class_model->getStudentSkills($subjectId);       
+
+        echo json_encode($subject_skills);
     }
 
     public function ajaxsearch()

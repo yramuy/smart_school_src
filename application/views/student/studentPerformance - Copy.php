@@ -31,11 +31,11 @@
                     </div><!-- /.box-header -->
                     <div class="box-body">
                                                 <div class="row">
-                              <form role="form" action="<?php echo site_url('student/search_performance') ?>" method="post" class="class_search_form">
-                            <div class="col-md-10">
+                              <form role="form" action="<?php echo site_url('student/searchvalidation') ?>" method="post" class="class_search_form">
+                            <div class="col-md-6">
                                 <div class="row">
                                         <?php echo $this->customlib->getCSRF(); ?>
-                                        <div class="col-sm-4">
+                                        <div class="col-sm-6">
                                             <div class="form-group">
                                                 <label><?php echo $this->lang->line('class'); ?></label> <small class="req"> *</small>
                                                 <select autofocus="" id="class_id" name="class_id" class="form-control" >
@@ -56,7 +56,7 @@ $count++;
                                                   <span class="text-danger" id="error_class_id"></span>
                                             </div>
                                         </div> 
-                                        <div class="col-sm-4">
+                                        <div class="col-sm-6">
                                             <div class="form-group">
                                                 <label><?php echo $this->lang->line('section'); ?></label>
                                                 <select  id="section_id" name="section_id" class="form-control" >
@@ -64,19 +64,10 @@ $count++;
                                                 </select>
                                                 <span class="text-danger"><?php echo form_error('section_id'); ?></span>
                                             </div>
-                                        </div> 
-                                        <div class="col-sm-4">
-                                            <div class="form-group">
-                                                <label><?php echo $this->lang->line('subject'); ?></label>
-                                                <select  id="subject_id" name="subject_id" class="form-control" >
-                                                    <option value=""><?php echo $this->lang->line('select'); ?></option>
-                                                </select>
-                                                <span class="text-danger"><?php echo form_error('subject_id'); ?></span>
-                                            </div>
                                         </div>
                                         <div class="col-sm-12">
                                             <div class="form-group">
-                                                <button type="button" name="search" value="search_filter" id="searchBtn" class="btn btn-primary btn-sm pull-right checkbox-toggle"><i class="fa fa-search"></i> <?php echo $this->lang->line('search'); ?></button>
+                                                <button type="submit" name="search" value="search_filter" class="btn btn-primary btn-sm pull-right checkbox-toggle"><i class="fa fa-search"></i> <?php echo $this->lang->line('search'); ?></button>
                                             </div>
                                         </div>
                                 </div>
@@ -87,8 +78,8 @@ $count++;
                         <div class="table-responsive mailbox-messages"> 
                             <div class="download_label"><?php echo $this->lang->line('subject_group_list'); ?></div>
 
-                            <!-- <a class="btn btn-default btn-xs pull-right" title="<?php echo $this->lang->line('print'); ?>" id="print" onclick="printDiv()" ><i class="fa fa-print"></i></a> 
-                            <a class="btn btn-default btn-xs pull-right" title="<?php echo $this->lang->line('export'); ?>"  id="btnExport" onclick="fnExcelReport();"> <i class="fa fa-file-excel-o"></i> </a> -->
+                            <a class="btn btn-default btn-xs pull-right" title="<?php echo $this->lang->line('print'); ?>" id="print" onclick="printDiv()" ><i class="fa fa-print"></i></a> 
+                            <a class="btn btn-default btn-xs pull-right" title="<?php echo $this->lang->line('export'); ?>"  id="btnExport" onclick="fnExcelReport();"> <i class="fa fa-file-excel-o"></i> </a>
                             
                             <table class="table table-striped table-bordered table-hover example" cellspacing="0" width="100%">
                                 <thead>
@@ -96,12 +87,33 @@ $count++;
                                         <th>S No</th>
                                         <th>Admission No</th>
                                         <th class="text-left">Student Name</th>
+                                        <th>Class</th>
                                         <th>DOB</th>
-                                        <th>Gender</th>                                        
+                                        <th>Gender</th>
+                                        <th>Admission Date</th>
+                                        <th>Grade</th>
+                                        <th>Star Rating</th>
                                         <th class="text-right no_print"><?php echo $this->lang->line('action'); ?></th>
                                     </tr>
                                 </thead>
-                                <tbody id="student_body"></tbody>
+                                <tbody>
+                                    <?php if(sizeof($students) > 0){ $i = 1; foreach($students as $st){?>
+                                        <tr>
+                                            <td><?php echo $i; ?></td>
+                                            <td><input type="hidden" name="" class=""><?php echo $st['admission_no']; ?></td>
+                                            <td><?php echo $st['firstname']; ?></td>
+                                            <td><?php echo $st['class'].'('.$st['section'].')' ?></td>
+                                            <td><?php echo date($this->customlib->getSchoolDateFormat(), $this->customlib->dateyyyymmddTodateformat($st['dob'])); ?></td>
+                                            <td><?php echo $st['gender']; ?></td>
+                                            <td><?php echo $st['admission_date']; ?></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>
+                                                <a href="#" class="btn btn-default btn-xs star_rating text-green" data-toggle="tooltip" data-placement="bottom" title="<?php echo "Student Rating"; ?>" data-id="<?php echo $st['id'];?>" data-name="<?php echo $st['firstname'];?>" data-admission="<?php echo $st['admission_no'];?>" data-section="<?php echo $st['class'].'('.$st['section'].')' ?>" data-gender="<?php echo $st['gender']; ?>" data-dob="<?php echo date($this->customlib->getSchoolDateFormat(), $this->customlib->dateyyyymmddTodateformat($st['dob'])); ?>"></i> <i class="fa fa-reorder"></i></a>
+                                            </td>
+                                        </tr>
+                                    <?php $i++; } }?>
+                                </tbody>
                             </table>
                         </div>
                 </div>
@@ -129,10 +141,6 @@ $count++;
                       <div class="col-xs-4">
                         <label for="ex2">Class : </label>
                         <strong><span id="std_class" class="text-green"></span></strong>
-                      </div>
-                      <div class="col-xs-4">
-                        <label for="ex2">Subject : </label>
-                        <strong><span id="std_subject" class="text-green"></span></strong>
                       </div>                      
                     </div>
                     <div class="form-group row">
@@ -162,7 +170,23 @@ $count++;
                                         
                                     </tr>
                                 </thead>
-                                <tbody id="student_skills"></tbody>
+                                <tbody>
+                                    <?php if(sizeof($studentskills) > 0){ $i = 1; foreach($studentskills as $stsk){?>
+                                        <tr>
+                                            <input type="hidden" name="skill_name" id="skill_id" value="<?php echo $stsk['id']; ?>">
+                                            <td><?php echo $i; ?></td>                                            
+                                            <td><?php echo $stsk['name']; ?></td>
+                                            <td>
+                                                <h4 class="text-center mt-2 mb-4">
+                                                    <?php for($k=1; $k<=5; $k++){?>
+                                                    <i class="fas fa-star star-light submit_star mr-1" id="submit_star_<?php echo $k; ?>_<?php echo $stsk['id']; ?>" data-rating="<?php echo $k; ?>" onclick="update_rating(<?php echo $stsk['id']; ?>,<?php echo $k; ?>)"></i>                                                   
+                                                <?php }?>
+                                                </h4>
+                                            </td>
+                                            
+                                        </tr>
+                                    <?php $i++; } }?>
+                                </tbody>
                             </table>
                     </div>                    
                     
@@ -179,11 +203,10 @@ $count++;
 
 <script type="text/javascript">
 
-var base_url = '<?php echo base_url() ?>';
-
 function getSectionByClass(class_id, section_id) {
     if (class_id != "" && section_id != "") {
         $('#section_id').html("");
+        var base_url = '<?php echo base_url() ?>';
         var div_data = '<option value=""><?php echo $this->lang->line('select'); ?></option>';
         $.ajax({
             type: "GET",
@@ -242,57 +265,63 @@ $(document).ready(function () {
             var admission = $(this).attr("data-admission");
             var gender = $(this).attr("data-gender");
             var dob = $(this).attr("data-dob");
-            var subject = $("#subject_id option:selected").text();
 
             $('#student_id').val(id);
             $('#std_name').html(name);
-            $('#std_subject').html(subject);
             $('#std_class').html(section);
             $('#std_admisno').html(admission);
             $('#std_dob').html(dob);
             $('#std_gender').html(gender);
 
-            var subjectId = $('#subject_id').val();
-
-            if(subjectId != ""){
-                update_student_skills(subjectId);
-            }
-
             
-        });
 
-        $(document).on('change', '#section_id', function(){
-            var classId = $('#class_id').val();
-            var sectionId = $(this).val();
-            
-            $('#subject_id').html("");
-
-            
-            var div_data = '<option value=""><?php echo $this->lang->line('select'); ?></option>';
-            if(classId != "" && sectionId != ""){
-                $.ajax({
-                    type: "POST",
-                    url: base_url + "student/getSubjectsByClassSection",
-                    data: {'classId': classId,'sectionId': sectionId},
-                    dataType: "json",
-                    success: function(data){
-                        console.log(data);
-
-                        $.each(data, function (i, obj)
-                        {
-                            div_data += "<option value=" + obj.subject_id + ">" + obj.name + "</option>";
-                        });
-
-                        $('#subject_id').append(div_data);
-                    }
-                });
-            }
-
+            // alert(id+' '+name);
         });
 
     });
 
- 
+    var rating_data = 0;
+
+    //     $(document).on('mouseenter', '.submit_star', function(){
+
+    //     var rating = $(this).data('rating');
+
+    //     reset_background();
+
+    //     for(var count = 1; count <= rating; count++)
+    //     {
+
+    //         $('#submit_star_'+count).addClass('text-warning');
+
+    //     }
+
+    // });
+
+    // function reset_background()
+    // {
+    //     for(var count = 1; count <= 5; count++)
+    //     {
+
+    //         $('#submit_star_'+count).addClass('star-light');
+
+    //         $('#submit_star_'+count).removeClass('text-warning');
+
+    //     }
+    // }
+
+    // $(document).on('mouseleave', '.submit_star', function(){
+
+    //     reset_background();
+
+    //     for(var count = 1; count <= rating_data; count++)
+    //     {
+
+    //         $('#submit_star_'+count).removeClass('star-light');
+
+    //         $('#submit_star_'+count).addClass('text-warning');
+    //     }
+
+    // });
 
     function update_rating(skillid,rating){
 
@@ -302,61 +331,19 @@ $(document).ready(function () {
             $('#submit_star_'+count+'_'+skillid).removeClass('star-light');
 
             $('#submit_star_'+count+'_'+skillid).addClass('text-warning');
-        }        
+        }
+
+        // alert(skillid+' - '+rating);
+        
         
     }
 
-    function update_student_skills(subjectId){
-        $.ajax({
-            type: "POST",
-            url: base_url + "student/getStudentSkills",
-            data: {'subjectId': subjectId},
-            dataType: "json",
-            success: function(data){
-                $('#student_skills').html("");
-                var j = 1;
-                if(data.length > 0){
-                        $.each(data, function(i, obj){
-                        $('#student_skills').append('<tr><input type="hidden" name="skill_id" id="skill_id" value="'+obj.skill_id+'"><td>'+j+'<td>'+obj.name+'</td><td><h4 class="text-center mt-2 mb-4"><?php for($k=1; $k<=5; $k++){?><i class="fas fa-star star-light submit_star mr-1" id="submit_star_<?php echo $k; ?>_'+obj.skill_id+'" data-rating="<?php echo $k; ?>" onclick="update_rating('+obj.skill_id+',<?php echo $k; ?>)"></i><?php }?></h4></td></tr>');
-                        j++;
-                    });
-                }else{
-                    $('#student_skills').html("");
-                }
-                
-            }
-        });
-    }
+    // $(document).on('click', '.submit_star', function(){
 
-</script>
+    //     rating_data = $(this).data('rating');
 
-<script type="text/javascript">
+    //     alert(rating_data);
 
-$(document).ready(function(){
+    // });
 
-    $(document).on('click', '#searchBtn', function(){
-
-        var classId = $('#class_id').val();
-        var sectionId = $('#section_id').val();
-
-        $.ajax({
-            type: "POST",
-            url: base_url + "student/search_performance",
-            data: {'class_id': classId,'sectionId': sectionId},
-            dataType: "json",
-            success: function (data) {
-                $('#student_body').html('');
-                var k =1;
-                $.each(data, function (i, obj)
-                {
-                    console.log(obj);
-                    $('#student_body').append('<tr><td>'+k+'</td><td>'+obj.admission_no+'</td><td>'+obj.firstname+'</td><td>'+obj.dob+'</td><td>'+obj.gender+'</td><td><a href="#" class="btn btn-default btn-xs star_rating text-green" data-toggle="tooltip" data-placement="bottom" title="<?php echo "Student Rating"; ?>" data-id="'+obj.id+'" data-name="'+obj.firstname+'" data-admission="'+obj.admission_no+'" data-section="'+obj.class+'('+obj.section+')" data-gender="'+obj.gender+'" data-dob="'+obj.dob+'"></i> <i class="fa fa-reorder"></i></a></td></tr>');
-                                        k++;
-                });
-            }
-        });
-
-    });
-
-});    
 </script>
